@@ -50,7 +50,7 @@ ENV PATH=/home/ubuntu/.cargo/bin:/home/ubuntu/.local/bin:$PATH
 # Install Rust toolchain as non-root user
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 RUN rustup target add thumbv7em-none-eabihf \
-    && cargo install c2rust --git https://github.com/immunant/c2rust --tag v0.19.0 --locked
+    && cargo install c2rust --git https://github.com/immunant/c2rust --tag v0.19.0 --locked \
     && cargo install rustfilt
 
 # One rust dependency needs clang-14, form now on we use clang-20
