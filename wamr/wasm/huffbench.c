@@ -1,0 +1,412 @@
+#include <stdint.h>
+#include <stddef.h>
+#include <stdbool.h>
+
+#ifndef SCALE_FACTOR
+#  define SCALE_FACTOR 1
+#endif
+
+#define TEST_SIZE 500
+static uint8_t compression_buff[TEST_SIZE + 1];
+
+static const uint8_t orig_data[TEST_SIZE] = {
+    'J', '2', 'O', 'Z', 'F', '5', '0', 'F', 'Y', 'L',
+    'D', '5', 'U', 'T', 'V', 'Y', 'Y', 'R', 'M', 'T',
+    '0', 'V', 'X', 'O', '0', '1', 'V', 'C', '5', 'F',
+    'N', 'I', 'B', '1', 'C', 'G', '1', '2', 'M', 'T',
+    'I', 'P', 'T', '2', 'C', 'I', 'V', '0', '0', 'B',
+    'O', 'U', 'W', 'F', 'D', 'R', 'A', 'Y', 'T', 'A',
+    '3', 'A', 'I', '4', '2', 'K', 'F', 'X', 'H', 'R',
+    'K', 'P', 'A', '3', 'L', 'C', 'G', 'A', '3', 'A',
+    'B', 'L', 'U', 'Y', 'Q', 'X', 'J', 'R', 'Q', '2',
+    'R', 'N', '2', 'Z', 'M', 'Y', 'E', 'R', 'P', 'L',
+    'C', '0', '0', 'C', 'X', 'F', 'E', '3', 'G', 'B',
+    '3', 'H', 'M', 'S', '5', '3', 'J', 'I', 'O', 'Z',
+    'E', '5', 'H', 'B', 'Y', 'T', 'Z', '2', 'E', 'J',
+    'H', 'G', 'D', 'B', 'I', '0', 'H', 'M', 'Y', 'N',
+    'O', 'V', 'U', '0', 'H', 'U', 'X', 'R', '2', 'F',
+    'K', 'B', 'E', 'R', 'C', '3', 'E', '1', 'Z', 'I',
+    'E', 'B', 'O', 'H', 'C', 'W', 'C', 'J', 'D', '0',
+    'W', 'R', 'P', 'L', 'L', 'X', '5', 'D', 'I', '1',
+    'I', 'S', '2', 'N', 'E', '4', 'K', 'I', '0', 'D',
+    'R', '4', 'E', '5', 'G', 'H', 'W', 'I', 'Q', 'Z',
+    'C', 'H', 'K', 'R', 'S', 'V', 'I', 'R', 'Y', 'Q',
+    'M', 'B', 'D', 'J', 'O', 'H', 'H', 'Y', 'P', 'B',
+    '1', 'A', 'A', 'A', 'A', 'G', 'H', 'W', 'O', 'X',
+    'P', 'Q', '4', 'Z', 'B', 'Q', 'O', 'K', 'B', 'H',
+    '0', 'O', 'I', '3', 'X', 'W', 'E', '4', 'O', 'U',
+    'A', 'J', 'U', 'A', 'J', 'U', 'G', 'Q', 'K', 'U',
+    'I', 'Z', 'E', 'G', 'S', 'F', 'X', 'B', 'P', 'Y',
+    'I', 'K', 'G', 'Q', 'H', '3', 'G', 'M', '2', 'U',
+    'A', '2', '3', 'U', '2', 'H', 'J', 'C', 'X', 'T',
+    'W', '5', 'N', '0', 'G', '5', '5', '3', 'A', 'P',
+    'V', 'I', 'Z', '2', 'Y', 'A', 'Z', '4', 'M', 'V',
+    'S', 'M', 'R', 'Q', 'B', 'N', 'X', 'K', 'P', 'O',
+    '3', 'F', 'O', 'K', '5', 'U', 'K', '5', 'R', 'K',
+    'O', 'G', 'T', 'H', 'C', 'L', 'H', '2', 'K', 'U',
+    'R', '2', 'A', 'D', 'M', 'B', 'Q', 'D', 'L', 'A',
+    'S', 'J', 'F', 'A', 'T', 'F', 'U', '3', 'E', 'F',
+    'I', 'S', 'L', '1', 'Z', 'O', 'G', 'A', 'K', 'Q',
+    'U', '1', 'N', 'V', '4', 'Z', 'W', 'P', '3', 'C',
+    'P', 'P', 'L', 'U', 'P', '4', 'Z', 'D', '2', '3',
+    'I', 'E', 'P', 'T', '5', 'I', 'B', 'F', 'J', 'L',
+    'W', '3', 'H', 'D', 'S', 'F', '2', 'J', 'U', 'Z',
+    'L', 'D', 'I', 'W', 'Y', 'X', 'U', 'R', '0', 'Q',
+    'P', 'C', 'U', '4', 'W', 'T', 'H', 'X', 'Z', 'Q',
+    'D', 'P', 'N', 'K', 'S', 'A', 'P', 'O', 'J', 'E',
+    'I', 'U', 'H', 'Q', 'K', '5', 'I', '4', 'R', 'C',
+    'P', 'A', 'F', 'D', '4', '1', 'X', 'F', 'S', 'Q',
+    'V', 'V', '5', 'D', '5', 'R', 'D', 'P', '5', 'M',
+    'T', 'H', 'A', '0', 'Y', 'K', '0', 'A', 'I', 'L',
+    'C', 'X', 'L', 'H', '1', 'J', 'C', 'S', 'P', 'V',
+    'C', 'E', 'K', 'B', 'H', 'K', 'S', 'K', 'Z', 'R'
+};
+
+static uint8_t test_data[TEST_SIZE];
+
+static inline int benchmark_body(unsigned int lsf);
+static inline int verify_benchmark(int r);
+static inline void initialise_benchmark(void);
+
+// definitions come from RIOT/build/pkg/wamr/core/iwasm/libraries/libc-builtin/libc_builtin_wrapper.c 
+// search for wrapper_<function> and remove the first argument
+// --> At the bottom of the file they are registered
+static uint32_t memcpy(void *dst, const void *src, uint32_t size);
+static int32_t memcmp(const void *s1, const void *s2, uint32_t size);
+static int32_t memset(void *s, int32_t c, uint32_t size);
+
+int benchmark(void)
+{
+    initialise_benchmark();
+    int result = benchmark_body(SCALE_FACTOR);
+    return verify_benchmark(result);
+}
+
+
+// utility function for processing compression trie
+static void heap_adjust(size_t *freq, size_t *heap, int n, int k)
+{
+    // this function compares the values in the array
+    // 'freq' to order the elements of 'heap' according
+    // in an inverse heap. See the chapter on priority
+    // queues and heaps for more explanation.
+    int j;
+
+    --heap;
+
+    int v = heap[k];
+
+    while (k <= (n / 2)) {
+        j = k + k;
+
+        if ((j < n) && (freq[heap[j]] > freq[heap[j + 1]]))
+            ++j;
+
+        if (freq[v] < freq[heap[j]])
+            break;
+
+        heap[k] = heap[j];
+        k = j;
+    }
+
+    heap[k] = v;
+}
+
+size_t freq[512];    // allocate frequency table
+size_t heap[256];    // allocate heap
+int link[512];       // allocate link array
+uint32_t code[256];    // huffman codes
+uint8_t clen[256];   // bit lengths of codes
+
+// allocate heap2
+uint32_t heap2[256];
+// allocate output character buffer
+uint8_t outc[256];
+
+
+
+// Huffman compression/decompression function
+void compdecomp(uint8_t *data, size_t data_len)
+{
+    size_t i, j, n, mask;
+    uint32_t k, t;
+    uint8_t c;
+    uint8_t *cptr;
+    uint8_t *dptr = data;
+
+    /*
+     COMPRESSION
+   */
+
+
+    // allocate data space
+    uint8_t *comp = compression_buff;
+
+    memset(comp, 0, sizeof(uint8_t) * (data_len + 1));
+    memset(freq, 0, sizeof(size_t) * 512);
+    memset(heap, 0, sizeof(size_t) * 256);
+    memset(link, 0, sizeof(int) * 512);
+    memset(code, 0, sizeof(uint32_t) * 256);
+    memset(clen, 0, sizeof(uint8_t) * 256);
+
+    // count frequencies
+    for (i = 0; i < data_len; ++i) {
+        ++freq[(size_t)(*dptr)];
+        ++dptr;
+    }
+
+    // create indirect heap based on frequencies
+    n = 0;
+
+    for (i = 0; i < 256; ++i) {
+        if (freq[i]) {
+            heap[n] = i;
+            ++n;
+        }
+    }
+
+    for (i = n; i > 0; --i)
+        heap_adjust(freq, heap, n, i);
+
+    // generate a trie from heap
+    size_t temp;
+
+    // at this point, n contains the number of characters
+    // that occur in the data array
+    while (n > 1) {
+        // take first item from top of heap
+        --n;
+        temp = heap[0];
+        heap[0] = heap[n];
+
+        // adjust the heap to maintain properties
+        heap_adjust(freq, heap, n, 1);
+
+        // in upper half of freq array, store sums of
+        // the two smallest frequencies from the heap
+        freq[256 + n] = freq[heap[0]] + freq[temp];
+        link[temp] = 256 + n;     // parent
+        link[heap[0]] = -256 - n; // left child
+        heap[0] = 256 + n;        // right child
+
+        // adjust the heap again
+        heap_adjust(freq, heap, n, 1);
+    }
+
+    link[256 + n] = 0;
+
+    // generate codes
+    size_t m, x, maxx = 0, maxi = 0;
+    int l;
+
+    for (m = 0; m < 256; ++m) {
+        if (!freq[m]) // character does not occur
+        {
+            code[m] = 0;
+            clen[m] = 0;
+        }
+        else {
+            i = 0;       // length of current code
+            j = 1;       // bit being set in code
+            x = 0;       // code being built
+            l = link[m]; // link in trie
+
+            while (l) // while not at end of trie
+            {
+                if (l < 0) // left link (negative)
+                {
+                    x += j; // insert 1 into code
+                    l = -l; // reverse sign
+                }
+
+                l = link[l]; // move to next link
+                j <<= 1;     // next bit to be set
+                ++i;         // increment code length
+            }
+
+            code[m] = (uint32_t)x; // save code
+            clen[m] = (uint8_t)i; // save code len
+
+            // keep track of biggest key
+            if (x > maxx)
+                maxx = x;
+
+            // keep track of longest key
+            if (i > maxi)
+                maxi = i;
+        }
+    }
+
+    // make sure longest codes fit in unsigned long-bits
+    if (maxi > (sizeof(unsigned long) * 8)) {
+        return;
+    }
+
+    // encode data
+    size_t comp_len = 0; // number of data_len output
+    uint8_t bout = 0;       // uint8_t of encoded data
+    int bit = -1;        // count of bits stored in bout
+    dptr = data;
+
+    // watch for one-value file!
+    if (maxx == 0) {
+        return;
+    }
+
+    for (j = 0; j < data_len; ++j) {
+        // start copying at first bit of code
+        mask = 1 << (clen[(*dptr)] - 1);
+
+        // copy code bits
+        for (i = 0; i < clen[(*dptr)]; ++i) {
+            if (bit == 7) {
+                // store full output uint8_t
+                comp[comp_len] = bout;
+                ++comp_len;
+
+                // check for output longer than input!
+                if (comp_len == data_len) {
+                    return;
+                }
+
+                bit = 0;
+                bout = 0;
+            }
+            else {
+                // move to next bit
+                ++bit;
+                bout <<= 1;
+            }
+
+            if (code[(*dptr)] & mask)
+                bout |= 1;
+
+            mask >>= 1;
+        }
+
+        ++dptr;
+    }
+
+    // output any incomplete data_len and bits
+    bout <<= (7 - bit);
+    comp[comp_len] = bout;
+    ++comp_len;
+
+    // printf("data len = %u\n",data_len);
+    // printf("comp len = %u\n",comp_len);
+
+    /*
+     DECOMPRESSION
+   */
+
+    // initialize work areas
+  memset(heap2, 0, 256 * sizeof(uint32_t));
+
+    // create decode table as trie heap2
+    uint8_t *optr = outc;
+
+    for (j = 0; j < 256; ++j) {
+        (*optr) = (uint8_t)j;
+        ++optr;
+
+        // if code exists for this uint8_t
+        if (code[j] | clen[j]) {
+            // begin at first code bit
+            k = 0;
+            mask = 1 << (clen[j] - 1);
+
+            // find proper node, using bits in
+            // code as path.
+            for (i = 0; i < clen[j]; ++i) {
+                k = k * 2 + 1; // right link
+
+                if (code[j] & mask)
+                    ++k; // go left
+
+                mask >>= 1; // next bit
+            }
+
+            heap2[j] = k; // store link in heap2
+        }
+    }
+
+    // sort outc based on heap2
+    for (i = 1; i < 256; ++i) {
+        t = heap2[i];
+        c = outc[i];
+        j = i;
+
+        while ((j) && (heap2[j - 1] > t)) {
+            heap2[j] = heap2[j - 1];
+            outc[j] = outc[j - 1];
+            --j;
+        }
+
+        heap2[j] = t;
+        outc[j] = c;
+    }
+
+    // find first character in table
+    for (j = 0; heap2[j] == 0; ++j)
+        ;
+
+    // decode data
+    k = 0; // link in trie
+    i = j;
+    mask = 0x80;
+    n = 0;
+    cptr = comp;
+    dptr = data;
+
+    while (n < data_len) {
+        k = k * 2 + 1; // right link
+
+        if ((*cptr) & mask)
+            ++k; // left link if bit on
+
+        // search heap2 until link >= k
+        while (heap2[i] < k)
+            ++i;
+
+        // code matches, character found
+        if (k == heap2[i]) {
+            (*dptr) = outc[i];
+            ++dptr;
+            ++n;
+            k = 0;
+            i = j;
+        }
+
+        // move to next bit
+        if (mask > 1)
+            mask >>= 1;
+        else // code extends into next uint8_t
+        {
+            mask = 0x80;
+            ++cptr;
+        }
+    }
+}
+
+static inline int verify_benchmark(int res __attribute((unused)))
+{
+    return 0 == memcmp(test_data, orig_data, TEST_SIZE * sizeof(orig_data[0]));
+}
+
+static inline void initialise_benchmark(void)
+{
+}
+
+static inline int benchmark_body(unsigned int lsf)
+{
+    for (unsigned int lsf_cnt = 0; lsf_cnt < lsf; lsf_cnt++) {
+            // initialization
+            memcpy(test_data, orig_data, TEST_SIZE * sizeof(orig_data[0]));
+
+            // what we're timing
+            compdecomp(test_data, TEST_SIZE);
+        }
+
+    // done
+    return 0;
+}

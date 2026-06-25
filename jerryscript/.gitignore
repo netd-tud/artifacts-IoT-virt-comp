@@ -1,0 +1,3 @@
+bin/
+benchmark.js
+.jerry_config*

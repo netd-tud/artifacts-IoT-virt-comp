@@ -1,0 +1,147 @@
+mappings:
+  default:
+    - category: Heap
+      prefixes:
+        - [app, mp_heap]
+        - [app, lua_mem]
+        - [pkg, jerryscript, jerry-core, jcontext, jerry_global_heap]
+
+    - category: Runtime
+      prefixes:
+        - [app, main]
+
+        # jerryscript
+        - [pkg, jerryscript]
+        - [app, prin_jerry_error.str1.1]
+        - [app, print_jerry_error]
+        - [app, print_jerry_error*]
+        - [unspecified, jerry*]
+        - [unspecified, unlikely.ecma*]
+        - [unspecified, ecma*]
+        - [unspecified, lit*]
+        - [unspecified, parser*]
+        - [unspecified, scanner*]
+        - [unspecified, vm*]
+        - [unspecified, CSWTCH*]
+        - [app, js_run*]
+        # wamr
+        - [pkg, wamr]
+        - [app, iwasm_bytecode_exec_main.str1.1]
+        - [unspecified, wasm*]
+        - [unspecified, gc_*]
+        # micropython
+        - [app, mp_exec]
+        - [app, mp_exec.str*]
+        #- [pkg, app/bin/nrf52840dk/pkg]
+        # wamr
+        - [app, iwasm*]
+        - [app, wamr*]
+        - [unspecified, text]
+        - [unspecified, rodata]
+        - [unspecified, unlink_hmu.str1.1]
+        - [unspecified, bh_vector_destroy.str1.1]
+        - [unspecified, set_error_buf.constprop.0.str1.1]
+        - [unspecified, is_indices_overflow.str1.1]
+        # lua
+        - [pkg, lua]
+        - [pkg, tlsf]
+        - [app, msghandler]
+        - [app, msghandler.str*]
+        - [app, lua*]
+        - [app, CSWTCH*]
+        - [app, str1.1]
+        # femto-container
+        - [pkg, femto-container]
+        - [app, _stack]
+        - [app, external, ctx]
+        # micro-bpf
+        - [unspecified, .Lanon*]
+        - [unspecified, rel.ro*]
+        - [unspecified, core*]
+        - [unspecified, <core*]
+        - [unspecified, rbpf*]
+        - [unspecified, <rbpf*]
+        - [unspecified, alloc*]
+        - [unspecified, <alloc*]
+        - [unspecified, "*goblin*"]
+        - [unspecified, gcc_except_table*]
+        - [unspecified, str*]
+        - [unspecified, main]
+        - [unspecified, "*execute_program*"]
+        - [unspecified, cst*]
+        - [alloc]
+        - [compiler-builtins]
+
+    - category: Application
+      prefixes:
+        # native
+        - [app, benchmarks]
+        # jerryscript
+        - [app, benchmark_js]
+        # wamr
+        - [app, main_wasm]
+        - [app, benchmark_wasm]
+        # micropython
+        - [app, benchmark_py]
+        # lua
+        - [app, benchmark_lua]
+        - [app, main.o, benchmark_lua]
+        # femto-container
+        - [app, benchmark_bin]
+        # micro-bpf
+        - [unspecified, "*APP"]
+    - category: Kernel
+      prefixes:
+        - [newlib]
+        - [core]
+        - [sys]
+        - [cpu]
+        - [drivers]
+        - [boards]
+        - [app, startup.main]
+        - [pkg, mpaland-printf]
+        # native
+        - [app, main.str*]
+        - [app, eh_frame]
+        - [unspecified, eh_frame_hdr]
+        - [app, main.str1.1]
+        # micro-bpf
+        - [unspecified, "*riot_middleware*"]
+        - [unspecified, "*riot_wrapper*"]
+        - [unspecified, "*pread*"]
+        - [unspecified, "*core*"]
+        - [unspecified, "*raw_vec*"]
+        - [unspecified, "*__rustc*"]
+
+    - category: Debug
+      prefixes: 
+        # jerryscript
+        - [unspecified, debug*]
+        - [app, debug*]
+
+    - category: fill
+      prefixes:
+        - [fill]
+
+    - category: Unspecified
+      prefixes:
+        - [unspecified, comment]
+        - [unspecified, eh_frame]
+
+  nrf52840dk:
+    - category: Runtime
+      prefixes:
+        - [app, bin, nrf52840dk, pkg, micropython]
+
+  # native64:
+  #   - category: Runtime
+  #     prefixes:
+  #       # micropython
+  #       - [app, bin, native64, pkg, micropython]
+  #
+  #
+  # adafruit-feather-nrf52840-sense:
+  #   # micropython
+  #   - category: Runtime
+  #     prefixes:
+  #       - [app, bin, adafruit-feather-nrf52840-sense, pkg, micropython]

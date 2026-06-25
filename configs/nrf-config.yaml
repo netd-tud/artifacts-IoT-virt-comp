@@ -1,0 +1,552 @@
+benchmarks:
+  - name: crc_32
+    scale_factor: 6
+    iterations: 32
+    boards:
+    - board_name: nrf52840dk
+      supported_environments:
+        - name: native
+          env:
+            RIOT_STACK: 4096
+
+        - name: jerryscript
+          env:
+            RIOT_STACK: 4096
+            HEAP: 16 #kb
+            STACK: 4 #kb
+            PROFILE: es.next
+
+        - name: lua
+          env:
+            RIOT_STACK: 4096
+            HEAP: 65536
+
+        - name: micropython
+          env:
+            RIOT_STACK: 4096
+            HEAP: 65536
+
+        - name: micro-bpf
+          env:
+            RIOT_STACK: 4096
+            ENABLE_JIT: 0
+
+        - name: wamr
+          env:
+            RIOT_STACK: 4096
+            STACK: 4096
+
+        - name: wamr
+          label: wamr-fast
+          env:
+            INTERPRETER: FAST
+            RIOT_STACK: 4096
+            STACK: 4096
+
+  - name: huffbench
+    scale_factor: 1
+    iterations: 32
+    boards:
+    - board_name: nrf52840dk
+      supported_environments:
+        - name: native
+          env:
+            RIOT_STACK: 4096
+
+        - name: jerryscript
+          env:
+            RIOT_STACK: 4096
+            HEAP: 24 #kb
+            STACK: 4 #kb
+            PROFILE: es5.1
+
+        - name: lua
+          env:
+            RIOT_STACK: 4096
+            HEAP: 65536
+
+        - name: micropython
+          env:
+            RIOT_STACK: 4096
+            HEAP: 65536
+
+        - name: micro-bpf
+          env:
+            RIOT_STACK: 4096
+            ENABLE_JIT: 0
+
+        - name: wamr
+          env:
+            RIOT_STACK: 4096
+            STACK: 4096
+
+        - name: wamr
+          label: wamr-fast
+          env:
+            INTERPRETER: FAST
+            RIOT_STACK: 4096
+            STACK: 4096
+
+
+  - name: matmult-int
+    scale_factor: 1
+    iterations: 32
+    boards:
+    - board_name: nrf52840dk
+      supported_environments:
+        - name: native
+          env:
+            RIOT_STACK: 4096
+
+        - name: jerryscript
+          env:
+            RIOT_STACK: 4096
+            HEAP: 32 #kb
+            STACK: 4 #kb
+            PROFILE: minimal
+
+        - name: lua
+          env:
+            RIOT_STACK: 4096
+            HEAP: 65536
+
+        - name: micropython
+          env:
+            RIOT_STACK: 4096
+            HEAP: 65536
+
+        - name: micro-bpf
+          env:
+            RIOT_STACK: 4096
+            ENABLE_JIT: 0
+
+        - name: wamr
+          env:
+            RIOT_STACK: 4096
+            STACK: 4096
+
+
+        - name: wamr
+          label: wamr-fast
+          env:
+            INTERPRETER: FAST
+            RIOT_STACK: 4096
+            STACK: 4096
+
+
+  - name: md5
+    scale_factor: 2
+    iterations: 32
+    boards:
+    - board_name: nrf52840dk
+      supported_environments:
+        - name: native
+          env:
+            RIOT_STACK: 4096
+
+        - name: jerryscript
+          env:
+            RIOT_STACK: 4096
+            HEAP: 16 #kb
+            STACK: 4 #kb
+            PROFILE: es5.1
+
+        - name: lua
+          env:
+            RIOT_STACK: 4096
+            HEAP: 65536
+
+        - name: micropython
+          env:
+            RIOT_STACK: 4096
+            HEAP: 65536
+
+        - name: micro-bpf
+          env:
+            RIOT_STACK: 4096
+            ENABLE_JIT: 0
+
+        - name: wamr
+          env:
+            RIOT_STACK: 4096
+            STACK: 4096
+
+
+        - name: wamr
+          label: wamr-fast
+          env:
+            INTERPRETER: FAST
+            RIOT_STACK: 4096
+            STACK: 4096
+
+
+  - name: mont64
+    scale_factor: 13
+    iterations: 32
+    boards:
+    - board_name: nrf52840dk
+      supported_environments:
+        - name: native
+          env:
+            RIOT_STACK: 4096
+
+        - name: jerryscript
+          env:
+            RIOT_STACK: 4096
+            HEAP: 16 #kb
+            STACK: 4 #kb
+            PROFILE: es.next
+
+        - name: lua
+          env:
+            RIOT_STACK: 4096
+            HEAP: 65536
+            BIGINT: "ON"
+
+        - name: micropython
+          env:
+            RIOT_STACK: 4096
+            HEAP: 65536
+            BIGINT: "ON"
+
+        - name: micro-bpf
+          env:
+            RIOT_STACK: 4096
+            ENABLE_JIT: 0
+
+        - name: wamr
+          env:
+            RIOT_STACK: 4096
+            STACK: 4096
+
+
+        - name: wamr
+          label: wamr-fast
+          env:
+            INTERPRETER: FAST
+            RIOT_STACK: 4096
+            STACK: 4096
+
+
+  - name: nettle-sha256
+    scale_factor: 12
+    iterations: 32
+    boards:
+    - board_name: nrf52840dk
+      supported_environments:
+        - name: native
+          env:
+            RIOT_STACK: 4096
+
+        - name: jerryscript
+          env:
+            RIOT_STACK: 4096
+            HEAP: 16 #kb
+            STACK: 4 #kb
+            PROFILE: es.next
+
+        - name: lua
+          env:
+            RIOT_STACK: 4096
+            HEAP: 65536
+
+        - name: micropython
+          env:
+            RIOT_STACK: 4096
+            HEAP: 65536
+            BIGINT: "ON"
+
+        - name: micro-bpf
+          env:
+            RIOT_STACK: 4096
+            ENABLE_JIT: 0
+
+        - name: wamr
+          env:
+            RIOT_STACK: 4096
+            STACK: 4096
+
+
+        - name: wamr
+          label: wamr-fast
+          env:
+            INTERPRETER: FAST
+            RIOT_STACK: 4096
+            STACK: 4096
+
+
+  - name: nsichneu
+    scale_factor: 20
+    iterations: 32
+    boards:
+    - board_name: nrf52840dk
+      supported_environments:
+        - name: native
+          env:
+            RIOT_STACK: 4096
+
+        - name: jerryscript
+          env:
+            RIOT_STACK: 4096
+            HEAP: 40 #kb
+            STACK: 4 #kb
+            PROFILE: minimal
+
+        - name: lua
+          env:
+            RIOT_STACK: 4096
+            HEAP: 131072
+
+        - name: micropython
+          env:
+            RIOT_STACK: 4096
+            HEAP: 131072
+
+        - name: micro-bpf
+          env:
+            RIOT_STACK: 4096
+            ENABLE_JIT: 0
+
+        - name: wamr
+          env:
+            RIOT_STACK: 4096
+            STACK: 4096
+
+
+        - name: wamr
+          label: wamr-fast
+          env:
+            INTERPRETER: FAST
+            RIOT_STACK: 4096
+            STACK: 4096
+
+
+  - name: slre
+    scale_factor: 2
+    iterations: 32
+    boards:
+    - board_name: nrf52840dk
+      supported_environments:
+        - name: native
+          env:
+            RIOT_STACK: 4096
+
+        - name: jerryscript
+          env:
+            RIOT_STACK: 4096
+            HEAP: 16 #kb
+            STACK: 4 #kb
+            PROFILE: es5.1
+
+        - name: lua
+          env:
+            RIOT_STACK: 4096
+            HEAP: 65536
+            STRING: "ON"
+
+        - name: micropython
+          env:
+            RIOT_STACK: 4296
+            HEAP: 65536
+
+        - name: micro-bpf
+          env:
+            RIOT_STACK: 4096
+            ENABLE_JIT: 0
+
+        - name: wamr
+          env:
+            RIOT_STACK: 4096
+            STACK: 4096
+
+        - name: wamr
+          label: wamr-fast
+          env:
+            INTERPRETER: FAST
+            RIOT_STACK: 4096
+            STACK: 4096
+
+
+  - name: statemate
+    scale_factor: 86
+    iterations: 32
+    boards:
+    - board_name: nrf52840dk
+      supported_environments:
+        - name: native
+          env:
+            RIOT_STACK: 4096
+
+        - name: jerryscript
+          env:
+            RIOT_STACK: 4096
+            HEAP: 18 #kb
+            STACK: 4 #kb
+            PROFILE: minimal
+
+        - name: lua
+          env:
+            RIOT_STACK: 4096
+            HEAP: 65536
+
+        - name: micropython
+          env:
+            RIOT_STACK: 4096
+            HEAP: 65536
+
+        - name: micro-bpf
+          env:
+            RIOT_STACK: 4096
+            ENABLE_JIT: 0
+
+        - name: wamr
+          env:
+            RIOT_STACK: 4096
+            STACK: 4096
+
+        - name: wamr
+          label: wamr-fast
+          env:
+            INTERPRETER: FAST
+            RIOT_STACK: 4096
+            STACK: 4096
+
+  - name: tarfind
+    scale_factor: 3
+    iterations: 32
+    boards:
+    - board_name: nrf52840dk
+      supported_environments:
+        - name: native
+          env:
+            RIOT_STACK: 4096
+
+        - name: jerryscript
+          env:
+            RIOT_STACK: 4096
+            HEAP: 16 #kb
+            STACK: 4 #kb
+            PROFILE: es.next
+
+        - name: lua
+          env:
+            RIOT_STACK: 4096
+            HEAP: 65536
+            STRING: "ON"
+
+        - name: micropython
+          env:
+            RIOT_STACK: 4096
+            HEAP: 131072
+
+        - name: micro-bpf
+          env:
+            RIOT_STACK: 4096
+            ENABLE_JIT: 0
+
+        - name: wamr
+          env:
+            RIOT_STACK: 4096
+            STACK: 4096
+
+
+        - name: wamr
+          label: wamr-fast
+          env:
+            INTERPRETER: FAST
+            RIOT_STACK: 4096
+            STACK: 4096
+
+
+  - name: ud
+    scale_factor: 41
+    iterations: 32
+    boards:
+    - board_name: nrf52840dk
+      supported_environments:
+        - name: native
+          env:
+            RIOT_STACK: 4096
+
+        - name: jerryscript
+          env:
+            RIOT_STACK: 4096
+            HEAP: 16 #kb
+            STACK: 4 #kb
+            PROFILE: es5.1
+
+        - name: lua
+          env:
+            RIOT_STACK: 4096
+            HEAP: 65536
+            STRING: "ON"
+
+        - name: micropython
+          env:
+            RIOT_STACK: 4096
+            HEAP: 65536
+
+        - name: micro-bpf
+          env:
+            RIOT_STACK: 4096
+            ENABLE_JIT: 0
+
+        - name: wamr
+          env:
+            RIOT_STACK: 4096
+            STACK: 4096
+
+
+        - name: wamr
+          label: wamr-fast
+          env:
+            INTERPRETER: FAST
+            RIOT_STACK: 4096
+            STACK: 4096
+
+
+  - name: xgboost
+    scale_factor: 1
+    iterations: 32
+    boards:
+    - board_name: nrf52840dk
+      supported_environments:
+        - name: native
+          env:
+            RIOT_STACK: 4096
+
+        - name: jerryscript
+          env:
+            RIOT_STACK: 4096
+            HEAP: 64 #kb
+            STACK: 4 #kb
+            PROFILE: minimal
+
+        - name: lua
+          env:
+            RIOT_STACK: 4096
+            HEAP: 163840
+
+        - name: micropython
+          env:
+            RIOT_STACK: 4096
+            HEAP: 65536
+
+        - name: micro-bpf
+          env:
+            RIOT_STACK: 4096
+            ENABLE_JIT: 0
+
+        - name: wamr
+          env:
+            RIOT_STACK: 4096
+            STACK: 4096
+
+
+        - name: wamr
+          label: wamr-fast
+          env:
+            INTERPRETER: FAST
+            RIOT_STACK: 4096
+            STACK: 4096
+

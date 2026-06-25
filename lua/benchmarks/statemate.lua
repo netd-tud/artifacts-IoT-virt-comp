@@ -1,0 +1,904 @@
+SCALE_FACTOR = 1
+
+BITLIST = {}
+
+ACTIVE_KINDERSICHERUNG_CTRL_IDX = 10
+ACTIVE_KINDERSICHERUNG_CTRL_COPY_IDX = 11
+ACTIVE_KINDERSICHERUNG_CTRL_OLD_IDX = 12
+ACTIVE_FH_TUERMODUL_CTRL_IDX = 13
+ACTIVE_FH_TUERMODUL_CTRL_COPY_IDX = 14
+ACTIVE_FH_TUERMODUL_CTRL_OLD_IDX = 15
+ACTIVE_EINKLEMMSCHUTZ_CTRL_IDX = 16
+ACTIVE_EINKLEMMSCHUTZ_CTRL_COPY_IDX = 17
+ACTIVE_EINKLEMMSCHUTZ_CTRL_OLD_IDX = 18
+ACTIVE_BLOCK_ERKENNUNG_CTRL_IDX = 19
+ACTIVE_BLOCK_ERKENNUNG_CTRL_COPY_IDX = 20
+ACTIVE_BLOCK_ERKENNUNG_CTRL_OLD_IDX = 21
+ENTERED_EINSCHALTSTROM_MESSEN_BLOCK_ERKENNUNG_CTRL_IDX = 0
+ENTERED_EINSCHALTSTROM_MESSEN_BLOCK_ERKENNUNG_CTRL_COPY_IDX = 1
+TM_ENTERED_EINSCHALTSTROM_MESSEN_BLOCK_ERKENNUNG_CTRLCH_BLOCK_ERKENNUNG_CTRL__N_COPY = 0
+ENTERED_WIEDERHOLSPERRE_FH_TUERMODUL_CTRL_IDX = 4
+ENTERED_WIEDERHOLSPERRE_FH_TUERMODUL_CTRL_COPY_IDX = 5
+EXITED_BEREIT_FH_TUERMODUL_CTRL_IDX = 6
+EXITED_BEREIT_FH_TUERMODUL_CTRL_COPY_IDX = 7
+TM_ENTERED_WIEDERHOLSPERRE_FH_TUERMODUL_CTRLEXITED_BEREIT_FH_TUERMODUL_CTRL = 0
+TM_ENTERED_WIEDERHOLSPERRE_FH_TUERMODUL_CTRL = 0
+SC_FH_TUERMODUL_CTRL_2375_2 = 0
+SC_FH_TUERMODUL_CTRL_2352_1 = 0
+SC_FH_TUERMODUL_CTRL_2329_1 = 0
+FH_TUERMODUL_CTRL__N = 0
+FH_TUERMODUL_CTRL__N_COPY = 0
+FH_TUERMODUL_CTRL__N_OLD = 0
+SC_FH_TUERMODUL_CTRL_1781_10 = 0
+SC_FH_TUERMODUL_CTRL_1739_10 = 0
+FH_TUERMODUL__POSITION = 0
+FH_TUERMODUL__I_EIN = 0
+FH_TUERMODUL__I_EIN_OLD = 0
+FH_DU__MFH = 0
+FH_DU__MFH_COPY = 0
+FH_DU__POSITION = 0
+FH_DU__I_EIN = 0
+FH_DU__I_EIN_OLD = 0
+BLOCK_ERKENNUNG_CTRL__I_EIN_MAX = 0
+BLOCK_ERKENNUNG_CTRL__I_EIN_MAX_COPY = 0
+BLOCK_ERKENNUNG_CTRL__N = 0
+BLOCK_ERKENNUNG_CTRL__N_COPY = 0
+BLOCK_ERKENNUNG_CTRL__N_OLD = 0
+FH_TUERMODUL_CTRL__INREVERS2 = 0
+FH_TUERMODUL_CTRL__INREVERS2_COPY = 0
+FH_TUERMODUL_CTRL__INREVERS1 = 0
+FH_TUERMODUL_CTRL__INREVERS1_COPY = 0
+FH_TUERMODUL_CTRL__FT = 0
+FH_TUERMODUL__SFHZ_ZENTRAL = 0
+FH_TUERMODUL__SFHZ_ZENTRAL_OLD = 0
+FH_TUERMODUL__SFHZ_MEC = 0
+FH_TUERMODUL__SFHZ_MEC_OLD = 0
+FH_TUERMODUL__SFHA_ZENTRAL = 0
+FH_TUERMODUL__SFHA_ZENTRAL_OLD = 0
+FH_TUERMODUL__SFHA_MEC = 0
+FH_TUERMODUL__SFHA_MEC_OLD = 0
+FH_TUERMODUL__KL_50 = 0
+FH_TUERMODUL__BLOCK = 0
+FH_TUERMODUL__BLOCK_COPY = 0
+FH_TUERMODUL__BLOCK_OLD = 0
+FH_TUERMODUL__FT = 0
+FH_TUERMODUL__SFHZ = 0
+FH_TUERMODUL__SFHZ_COPY = 0
+FH_TUERMODUL__SFHZ_OLD = 0
+FH_TUERMODUL__SFHA = 0
+FH_TUERMODUL__SFHA_COPY = 0
+FH_TUERMODUL__SFHA_OLD = 0
+FH_TUERMODUL__MFHZ = 0
+FH_TUERMODUL__MFHZ_COPY = 0
+FH_TUERMODUL__MFHZ_OLD = 0
+FH_TUERMODUL__MFHA = 0
+FH_TUERMODUL__MFHA_COPY = 0
+FH_TUERMODUL__MFHA_OLD = 0
+FH_TUERMODUL__EKS_LEISTE_AKTIV = 0
+FH_TUERMODUL__EKS_LEISTE_AKTIV_OLD = 0
+FH_TUERMODUL__COM_OPEN = 0
+FH_TUERMODUL__COM_CLOSE = 0
+FH_DU__KL_50 = 0
+FH_DU__S_FH_FTZU = 0
+FH_DU__S_FH_FTAUF = 0
+FH_DU__FT = 0
+FH_DU__EKS_LEISTE_AKTIV = 0
+FH_DU__EKS_LEISTE_AKTIV_OLD = 0
+FH_DU__S_FH_TMBFAUFCAN = 0
+FH_DU__S_FH_TMBFAUFCAN_COPY = 0
+FH_DU__S_FH_TMBFAUFCAN_OLD = 0
+FH_DU__S_FH_TMBFZUCAN = 0
+FH_DU__S_FH_TMBFZUCAN_COPY = 0
+FH_DU__S_FH_TMBFZUCAN_OLD = 0
+FH_DU__S_FH_TMBFZUDISC = 0
+FH_DU__S_FH_TMBFZUDISC_OLD = 0
+FH_DU__S_FH_TMBFAUFDISC = 0
+FH_DU__S_FH_TMBFAUFDISC_OLD = 0
+FH_DU__S_FH_ZUDISC = 0
+FH_DU__S_FH_AUFDISC = 0
+FH_DU__DOOR_ID = 0
+FH_DU__BLOCK = 0
+FH_DU__BLOCK_COPY = 0
+FH_DU__BLOCK_OLD = 0
+FH_DU__MFHZ = 0
+FH_DU__MFHZ_COPY = 0
+FH_DU__MFHZ_OLD = 0
+FH_DU__MFHA = 0
+FH_DU__MFHA_COPY = 0
+FH_DU__MFHA_OLD = 0
+FH_TUERMODUL_CTRL__END_REVERS_IDX = 22
+FH_TUERMODUL_CTRL__END_REVERS_COPY_IDX = 23
+FH_TUERMODUL__EINKLEMMUNG_IDX = 24
+
+TIME = 0
+STABLE = 0
+STEP = 0
+
+NICHT_INITIALISIERT_NICHT_INITIALISIERT_NEXT_STATE = 0
+ZENTRAL_KINDERSICHERUNG_CTRL_NEXT_STATE = 0
+MEC_KINDERSICHERUNG_CTRL_NEXT_STATE = 0
+KINDERSICHERUNG_CTRL_KINDERSICHERUNG_CTRL_NEXT_STATE = 0
+B_FH_TUERMODUL_CTRL_NEXT_STATE = 0
+A_FH_TUERMODUL_CTRL_NEXT_STATE = 0
+WIEDERHOLSPERRE_FH_TUERMODUL_CTRL_NEXT_STATE = 0
+INITIALISIERT_FH_TUERMODUL_CTRL_NEXT_STATE = 0
+TIPP_SCHLIESSEN_FH_TUERMODUL_CTRL_NEXT_STATE = 0
+MANUELL_SCHLIESSEN_FH_TUERMODUL_CTRL_NEXT_STATE = 0
+OEFFNEN_FH_TUERMODUL_CTRL_NEXT_STATE = 0
+SCHLIESSEN_FH_TUERMODUL_CTRL_NEXT_STATE = 0
+FH_STEUERUNG_DUMMY_FH_STEUERUNG_DUMMY_NEXT_STATE = 0
+EINKLEMMSCHUTZ_CTRL_EINKLEMMSCHUTZ_CTRL_NEXT_STATE = 0
+BEWEGUNG_BLOCK_ERKENNUNG_CTRL_NEXT_STATE = 0
+BLOCK_ERKENNUNG_CTRL_BLOCK_ERKENNUNG_CTRL_NEXT_STATE = 0
+
+local interface = function()
+    if BITLIST[ENTERED_WIEDERHOLSPERRE_FH_TUERMODUL_CTRL_IDX] ~= 0 then
+        TM_ENTERED_WIEDERHOLSPERRE_FH_TUERMODUL_CTRL = TIME
+    end
+    if BITLIST[ENTERED_WIEDERHOLSPERRE_FH_TUERMODUL_CTRL_IDX] ~= 0 or BITLIST[EXITED_BEREIT_FH_TUERMODUL_CTRL_IDX] ~= 0 then
+        TM_ENTERED_WIEDERHOLSPERRE_FH_TUERMODUL_CTRLEXITED_BEREIT_FH_TUERMODUL_CTRL = TIME
+    end
+    if (SC_FH_TUERMODUL_CTRL_2375_2 ~= 0) and (TIME - SC_FH_TUERMODUL_CTRL_2375_2 >= 1) then
+        FH_TUERMODUL__MFHA_COPY = 0
+        SC_FH_TUERMODUL_CTRL_2375_2 = 0
+    end
+    if (SC_FH_TUERMODUL_CTRL_2352_1 ~= 0) and (TIME - SC_FH_TUERMODUL_CTRL_2352_1 >= 1) then
+        FH_TUERMODUL__MFHZ_COPY = 0
+        SC_FH_TUERMODUL_CTRL_2352_1 = 0
+    end
+    if (SC_FH_TUERMODUL_CTRL_2329_1 ~= 0) and (TIME - SC_FH_TUERMODUL_CTRL_2329_1 >= 1) then
+        FH_TUERMODUL__MFHZ_COPY = 0
+        SC_FH_TUERMODUL_CTRL_2329_1 = 0
+    end
+    if (SC_FH_TUERMODUL_CTRL_1781_10 ~= 0) and (TIME - SC_FH_TUERMODUL_CTRL_1781_10 >= 1) then
+        SC_FH_TUERMODUL_CTRL_1781_10 = 0
+    end
+    if (SC_FH_TUERMODUL_CTRL_1739_10 ~= 0) and (TIME - SC_FH_TUERMODUL_CTRL_1739_10 >= 1) then
+        SC_FH_TUERMODUL_CTRL_1739_10 = 0
+    end
+    if (BITLIST[ENTERED_EINSCHALTSTROM_MESSEN_BLOCK_ERKENNUNG_CTRL_IDX] ~= 0 or BLOCK_ERKENNUNG_CTRL__N ~= BLOCK_ERKENNUNG_CTRL__N_OLD) then
+        TM_ENTERED_EINSCHALTSTROM_MESSEN_BLOCK_ERKENNUNG_CTRLCH_BLOCK_ERKENNUNG_CTRL__N_COPY = TIME
+    end
+end
+
+local function init()
+    TM_ENTERED_EINSCHALTSTROM_MESSEN_BLOCK_ERKENNUNG_CTRLCH_BLOCK_ERKENNUNG_CTRL__N_COPY = 0
+    TM_ENTERED_WIEDERHOLSPERRE_FH_TUERMODUL_CTRLEXITED_BEREIT_FH_TUERMODUL_CTRL = 0
+    TM_ENTERED_WIEDERHOLSPERRE_FH_TUERMODUL_CTRL = 0
+    NICHT_INITIALISIERT_NICHT_INITIALISIERT_NEXT_STATE = 0
+    ZENTRAL_KINDERSICHERUNG_CTRL_NEXT_STATE = 0
+    MEC_KINDERSICHERUNG_CTRL_NEXT_STATE = 0
+    KINDERSICHERUNG_CTRL_KINDERSICHERUNG_CTRL_NEXT_STATE = 0
+    B_FH_TUERMODUL_CTRL_NEXT_STATE = 0
+    A_FH_TUERMODUL_CTRL_NEXT_STATE = 0
+    WIEDERHOLSPERRE_FH_TUERMODUL_CTRL_NEXT_STATE = 0
+    INITIALISIERT_FH_TUERMODUL_CTRL_NEXT_STATE = 0
+    TIPP_SCHLIESSEN_FH_TUERMODUL_CTRL_NEXT_STATE = 0
+    MANUELL_SCHLIESSEN_FH_TUERMODUL_CTRL_NEXT_STATE = 0
+    OEFFNEN_FH_TUERMODUL_CTRL_NEXT_STATE = 0
+    SCHLIESSEN_FH_TUERMODUL_CTRL_NEXT_STATE = 0
+    FH_STEUERUNG_DUMMY_FH_STEUERUNG_DUMMY_NEXT_STATE = 0
+    EINKLEMMSCHUTZ_CTRL_EINKLEMMSCHUTZ_CTRL_NEXT_STATE = 0
+    BEWEGUNG_BLOCK_ERKENNUNG_CTRL_NEXT_STATE = 0
+    BLOCK_ERKENNUNG_CTRL_BLOCK_ERKENNUNG_CTRL_NEXT_STATE = 0
+end
+
+local function generic_KINDERSICHERUNG_CTRL()
+    if BITLIST[ACTIVE_KINDERSICHERUNG_CTRL_IDX] ~= 0 then
+        if KINDERSICHERUNG_CTRL_KINDERSICHERUNG_CTRL_NEXT_STATE == 1 then
+            if not (FH_TUERMODUL__SFHA_ZENTRAL ~= 0 or FH_TUERMODUL__SFHZ_ZENTRAL ~= 0) then
+                STABLE = 0
+                FH_TUERMODUL__SFHZ_COPY = 0
+                FH_TUERMODUL__SFHA_COPY = 0
+
+                KINDERSICHERUNG_CTRL_KINDERSICHERUNG_CTRL_NEXT_STATE = 3
+                ZENTRAL_KINDERSICHERUNG_CTRL_NEXT_STATE = 0
+            else
+                if ZENTRAL_KINDERSICHERUNG_CTRL_NEXT_STATE == 1 then
+                    if (FH_TUERMODUL__SFHA_ZENTRAL ~= 0 and not (FH_TUERMODUL__SFHA_ZENTRAL_OLD ~= 0)) then
+                        STABLE = 0
+                        FH_TUERMODUL__SFHA_COPY = 1
+
+                        ZENTRAL_KINDERSICHERUNG_CTRL_NEXT_STATE = 1
+                    elseif (FH_TUERMODUL__SFHZ_ZENTRAL ~= 0 and not (FH_TUERMODUL__SFHZ_ZENTRAL_OLD ~= 0)) then
+                        STABLE = 0
+                        FH_TUERMODUL__SFHZ_COPY = 1
+
+                        ZENTRAL_KINDERSICHERUNG_CTRL_NEXT_STATE = 1
+                    elseif (not (FH_TUERMODUL__SFHA_ZENTRAL ~= 0) and FH_TUERMODUL__SFHA_ZENTRAL_OLD ~= 0) then
+                        STABLE = 0
+                        FH_TUERMODUL__SFHA_COPY = 0
+
+                        ZENTRAL_KINDERSICHERUNG_CTRL_NEXT_STATE = 1
+                    elseif (not (FH_TUERMODUL__SFHZ_ZENTRAL ~= 0) and FH_TUERMODUL__SFHZ_ZENTRAL_OLD ~= 0) then
+                        STABLE = 0
+                        FH_TUERMODUL__SFHZ_COPY = 0
+
+                        ZENTRAL_KINDERSICHERUNG_CTRL_NEXT_STATE = 1
+                    end
+                else
+                    STABLE = 0
+                end
+            end
+        elseif KINDERSICHERUNG_CTRL_KINDERSICHERUNG_CTRL_NEXT_STATE == 2 then
+            if not (FH_TUERMODUL__SFHA_MEC ~= 0 or FH_TUERMODUL__SFHZ_MEC ~= 0) then
+                STABLE = 0
+                FH_TUERMODUL__SFHZ_COPY = 0
+                FH_TUERMODUL__SFHA_COPY = 0
+
+                KINDERSICHERUNG_CTRL_KINDERSICHERUNG_CTRL_NEXT_STATE = 3
+                MEC_KINDERSICHERUNG_CTRL_NEXT_STATE = 0
+            else
+                if MEC_KINDERSICHERUNG_CTRL_NEXT_STATE == 1 then
+                    if (FH_TUERMODUL__SFHA_MEC ~= 0 and not (FH_TUERMODUL__SFHA_MEC_OLD ~= 0)) then
+                        STABLE = 0
+                        FH_TUERMODUL__SFHA_COPY = 1
+
+                        MEC_KINDERSICHERUNG_CTRL_NEXT_STATE = 1
+                    elseif (FH_TUERMODUL__SFHZ_MEC ~= 0 and not (FH_TUERMODUL__SFHZ_MEC_OLD ~= 0)) then
+                        STABLE = 0
+                        FH_TUERMODUL__SFHZ_COPY = 1
+
+                        MEC_KINDERSICHERUNG_CTRL_NEXT_STATE = 1
+                    elseif (not (FH_TUERMODUL__SFHA_MEC ~= 0) and FH_TUERMODUL__SFHA_MEC_OLD ~= 0) then
+                        STABLE = 0
+                        FH_TUERMODUL__SFHA_COPY = 0
+
+                        MEC_KINDERSICHERUNG_CTRL_NEXT_STATE = 1
+                    elseif (not (FH_TUERMODUL__SFHZ_MEC ~= 0) and FH_TUERMODUL__SFHZ_MEC_OLD ~= 0) then
+                        STABLE = 0
+                        FH_TUERMODUL__SFHZ_COPY = 0
+
+                        MEC_KINDERSICHERUNG_CTRL_NEXT_STATE = 1
+                    end
+                else
+                    STABLE = 0
+                end
+            end
+        elseif KINDERSICHERUNG_CTRL_KINDERSICHERUNG_CTRL_NEXT_STATE == 3 then
+            if not (FH_TUERMODUL__KL_50 ~= 0) and (FH_TUERMODUL__SFHZ_MEC ~= 0 and FH_TUERMODUL__SFHA_MEC ~= 0) then
+                STABLE = 0
+                FH_TUERMODUL__SFHZ_COPY = 1
+                FH_TUERMODUL__SFHA_COPY = 1
+
+                KINDERSICHERUNG_CTRL_KINDERSICHERUNG_CTRL_NEXT_STATE = 2
+            elseif not (FH_TUERMODUL__KL_50 ~= 0) and (FH_TUERMODUL__SFHZ_MEC ~= 0 and FH_TUERMODUL__SFHA_MEC == 0) then
+                STABLE = 0
+                FH_TUERMODUL__SFHZ_COPY = 1
+
+                KINDERSICHERUNG_CTRL_KINDERSICHERUNG_CTRL_NEXT_STATE = 2
+            elseif not (FH_TUERMODUL__KL_50 ~= 0) and (FH_TUERMODUL__SFHZ_MEC == 0 and FH_TUERMODUL__SFHA_MEC ~= 0) then
+                STABLE = 0
+                FH_TUERMODUL__SFHA_COPY = 1
+
+                KINDERSICHERUNG_CTRL_KINDERSICHERUNG_CTRL_NEXT_STATE = 2
+            elseif (FH_TUERMODUL__SFHZ_ZENTRAL == 0 and FH_TUERMODUL__SFHA_ZENTRAL ~= 0 and FH_TUERMODUL__KL_50 == 0) then
+                STABLE = 0
+                FH_TUERMODUL__SFHA_COPY = 1
+
+                KINDERSICHERUNG_CTRL_KINDERSICHERUNG_CTRL_NEXT_STATE = 1
+            elseif (FH_TUERMODUL__SFHZ_ZENTRAL ~= 0 and FH_TUERMODUL__SFHA_ZENTRAL ~= 0) then
+                STABLE = 0
+                FH_TUERMODUL__SFHA_COPY = 1
+                FH_TUERMODUL__SFHZ_COPY = 1
+
+                KINDERSICHERUNG_CTRL_KINDERSICHERUNG_CTRL_NEXT_STATE = 1
+            elseif (FH_TUERMODUL__SFHZ_ZENTRAL ~= 0 and FH_TUERMODUL__SFHA_ZENTRAL == 0 and FH_TUERMODUL__KL_50 == 0) then
+                STABLE = 0
+                FH_TUERMODUL__SFHZ_COPY = 1
+
+                KINDERSICHERUNG_CTRL_KINDERSICHERUNG_CTRL_NEXT_STATE = 1
+        else
+            STABLE = 0
+            KINDERSICHERUNG_CTRL_KINDERSICHERUNG_CTRL_NEXT_STATE = 3
+        end
+    end
+  end
+end
+
+local function generic_FH_TUERMODUL_CTRL()
+    if not (BITLIST[ACTIVE_FH_TUERMODUL_CTRL_IDX] ~= 0) and BITLIST[ACTIVE_FH_TUERMODUL_CTRL_OLD_IDX] ~= 0 and not (BITLIST[ACTIVE_FH_TUERMODUL_CTRL_COPY_IDX] ~= 0) then
+        BITLIST[ENTERED_WIEDERHOLSPERRE_FH_TUERMODUL_CTRL_IDX] = 0
+        BITLIST[EXITED_BEREIT_FH_TUERMODUL_CTRL_IDX] = 0
+    end
+    if BITLIST[ACTIVE_FH_TUERMODUL_CTRL_IDX] ~= 0 then
+        if BITLIST[ACTIVE_KINDERSICHERUNG_CTRL_IDX] == 0 then
+            KINDERSICHERUNG_CTRL_KINDERSICHERUNG_CTRL_NEXT_STATE = 3
+        end
+        BITLIST[ACTIVE_KINDERSICHERUNG_CTRL_COPY_IDX] = 0
+        if BITLIST[ACTIVE_BLOCK_ERKENNUNG_CTRL_IDX] == 0 then
+            BITLIST[ENTERED_EINSCHALTSTROM_MESSEN_BLOCK_ERKENNUNG_CTRL_IDX] = 0
+            BLOCK_ERKENNUNG_CTRL_BLOCK_ERKENNUNG_CTRL_NEXT_STATE = 1
+        end
+        BITLIST[ACTIVE_BLOCK_ERKENNUNG_CTRL_COPY_IDX] = 0
+        BITLIST[ACTIVE_KINDERSICHERUNG_CTRL_COPY_IDX] = 1
+        BITLIST[ACTIVE_BLOCK_ERKENNUNG_CTRL_COPY_IDX] = 1
+        if B_FH_TUERMODUL_CTRL_NEXT_STATE == 1 then
+            if (FH_TUERMODUL_CTRL__N == 59 and not (FH_TUERMODUL_CTRL__N_OLD == 59)) then
+                STABLE = 0
+
+                B_FH_TUERMODUL_CTRL_NEXT_STATE = 3
+                INITIALISIERT_FH_TUERMODUL_CTRL_NEXT_STATE = 3
+            end
+        elseif B_FH_TUERMODUL_CTRL_NEXT_STATE == 2 then
+            if ((FH_TUERMODUL__BLOCK ~= 0 and not (FH_TUERMODUL__BLOCK_OLD ~= 0))) and ((FH_TUERMODUL__MFHZ ~= 0)) then
+                STABLE = 0
+                FH_TUERMODUL__MFHZ_COPY = 0
+                SC_FH_TUERMODUL_CTRL_2329_1 = TIME
+
+                B_FH_TUERMODUL_CTRL_NEXT_STATE = 3
+                INITIALISIERT_FH_TUERMODUL_CTRL_NEXT_STATE = 3
+            else
+                if NICHT_INITIALISIERT_NICHT_INITIALISIERT_NEXT_STATE == 1 then
+                    if not (FH_TUERMODUL__SFHZ ~= 0) then
+                        STABLE = 0
+                        FH_TUERMODUL__MFHZ_COPY = 0
+
+                        NICHT_INITIALISIERT_NICHT_INITIALISIERT_NEXT_STATE = 3
+                    end
+                elseif NICHT_INITIALISIERT_NICHT_INITIALISIERT_NEXT_STATE == 2 then
+                    if not (FH_TUERMODUL__SFHA ~= 0) then
+                        STABLE = 0
+                        FH_TUERMODUL__MFHA_COPY = 0
+
+                        NICHT_INITIALISIERT_NICHT_INITIALISIERT_NEXT_STATE = 3
+                    end
+                elseif NICHT_INITIALISIERT_NICHT_INITIALISIERT_NEXT_STATE == 3 then
+                    if (FH_TUERMODUL__SFHA ~= 0) then
+                        STABLE = 0
+                        FH_TUERMODUL__MFHA_COPY = 1
+
+                        NICHT_INITIALISIERT_NICHT_INITIALISIERT_NEXT_STATE = 2
+                    elseif (FH_TUERMODUL__SFHZ ~= 0) then
+                        STABLE = 0
+                        FH_TUERMODUL__MFHZ_COPY = 1
+
+                        NICHT_INITIALISIERT_NICHT_INITIALISIERT_NEXT_STATE = 1
+                    end
+                else
+                    STABLE = 0
+                    NICHT_INITIALISIERT_NICHT_INITIALISIERT_NEXT_STATE = 3
+                end
+            end
+        elseif B_FH_TUERMODUL_CTRL_NEXT_STATE == 3 then
+            if ((FH_TUERMODUL_CTRL__N > 60 and not (FH_TUERMODUL_CTRL__N_OLD > 60))) and ((not (FH_TUERMODUL_CTRL__INREVERS1 ~= 0 or FH_TUERMODUL_CTRL__INREVERS2 ~= 0))) then
+                STABLE = 0
+                FH_TUERMODUL__MFHZ_COPY = 0
+                FH_TUERMODUL__MFHA_COPY = 0
+
+                B_FH_TUERMODUL_CTRL_NEXT_STATE = 1
+            elseif ((FH_TUERMODUL__BLOCK ~= 0 and not (FH_TUERMODUL__BLOCK_OLD ~= 0))) and ((FH_TUERMODUL__MFHA ~= 0)) then
+                STABLE = 0
+                FH_TUERMODUL__MFHA_COPY = 0
+                SC_FH_TUERMODUL_CTRL_2375_2 = TIME
+
+                B_FH_TUERMODUL_CTRL_NEXT_STATE = 2
+                NICHT_INITIALISIERT_NICHT_INITIALISIERT_NEXT_STATE = 3
+            elseif ((FH_TUERMODUL__BLOCK ~= 0 and not (FH_TUERMODUL__BLOCK_OLD ~= 0))) and ((FH_TUERMODUL__MFHZ ~= 0)) then
+                STABLE = 0
+                FH_TUERMODUL__MFHZ_COPY = 0
+                SC_FH_TUERMODUL_CTRL_2352_1 = TIME
+
+                B_FH_TUERMODUL_CTRL_NEXT_STATE = 2
+                NICHT_INITIALISIERT_NICHT_INITIALISIERT_NEXT_STATE = 3
+            else
+                if INITIALISIERT_FH_TUERMODUL_CTRL_NEXT_STATE == 1 then
+                    if (FH_TUERMODUL__POSITION >= 405) then
+                        STABLE = 0
+                        FH_TUERMODUL__MFHA_COPY = 0
+
+                        INITIALISIERT_FH_TUERMODUL_CTRL_NEXT_STATE = 3
+                    else
+                        if OEFFNEN_FH_TUERMODUL_CTRL_NEXT_STATE == 1 then
+                            if (FH_TUERMODUL__SFHZ ~= 0 and not (FH_TUERMODUL__SFHZ_OLD ~= 0)) or (FH_TUERMODUL__SFHA ~= 0 and not (FH_TUERMODUL__SFHA_OLD ~= 0)) then
+                                STABLE = 0
+                                FH_TUERMODUL__MFHA_COPY = 0
+
+                                INITIALISIERT_FH_TUERMODUL_CTRL_NEXT_STATE = 3
+                                OEFFNEN_FH_TUERMODUL_CTRL_NEXT_STATE = 0
+                            end
+                        elseif OEFFNEN_FH_TUERMODUL_CTRL_NEXT_STATE == 2 then
+                            if (FH_TUERMODUL__SFHZ ~= 0 and not (FH_TUERMODUL__SFHZ_OLD ~= 0)) then
+                                STABLE = 0
+
+                                OEFFNEN_FH_TUERMODUL_CTRL_NEXT_STATE = 1
+                            elseif (not (FH_TUERMODUL__SFHA ~= 0) and FH_TUERMODUL__SFHA_OLD ~= 0) then
+                                STABLE = 0
+                                FH_TUERMODUL__MFHA_COPY = 0
+
+                                INITIALISIERT_FH_TUERMODUL_CTRL_NEXT_STATE = 3
+                                OEFFNEN_FH_TUERMODUL_CTRL_NEXT_STATE = 0
+                            end
+                        else
+                            STABLE = 0
+                            OEFFNEN_FH_TUERMODUL_CTRL_NEXT_STATE = 2
+                        end
+                    end
+                elseif INITIALISIERT_FH_TUERMODUL_CTRL_NEXT_STATE == 2 then
+                    if (FH_TUERMODUL__POSITION <= 0) then
+                        STABLE = 0
+                        FH_TUERMODUL__MFHZ_COPY = 0
+
+                        INITIALISIERT_FH_TUERMODUL_CTRL_NEXT_STATE = 3
+                    else
+                        if SCHLIESSEN_FH_TUERMODUL_CTRL_NEXT_STATE == 1 then
+                            if (FH_TUERMODUL__SFHA ~= 0 and not (FH_TUERMODUL__SFHA_OLD ~= 0)) or (FH_TUERMODUL__SFHZ ~= 0 and not (FH_TUERMODUL__SFHZ_OLD ~= 0)) then
+                                STABLE = 0
+                                FH_TUERMODUL__MFHZ_COPY = 0
+
+                                INITIALISIERT_FH_TUERMODUL_CTRL_NEXT_STATE = 3
+                            else
+                                if TIPP_SCHLIESSEN_FH_TUERMODUL_CTRL_NEXT_STATE == 1 then
+                                    BITLIST[FH_TUERMODUL_CTRL__END_REVERS_COPY_IDX] = 0
+                                    if BITLIST[FH_TUERMODUL_CTRL__END_REVERS_IDX] ~= 0 then
+                                        STABLE = 0
+                                        FH_TUERMODUL__MFHZ_COPY = 1
+                                        FH_TUERMODUL_CTRL__INREVERS2_COPY = 0
+
+                                        TIPP_SCHLIESSEN_FH_TUERMODUL_CTRL_NEXT_STATE = 2
+                                        FH_TUERMODUL__MFHA_COPY = 0
+
+                                        BITLIST[ACTIVE_EINKLEMMSCHUTZ_CTRL_COPY_IDX] = 1
+                                    end
+                                elseif TIPP_SCHLIESSEN_FH_TUERMODUL_CTRL_NEXT_STATE == 2 then
+                                    if BITLIST[FH_TUERMODUL__EINKLEMMUNG_IDX] ~= 0 then
+                                        STABLE = 0
+                                        FH_TUERMODUL_CTRL__INREVERS2_COPY = 1
+
+                                        BITLIST[FH_TUERMODUL_CTRL__END_REVERS_COPY_IDX] = 1
+                                        TIPP_SCHLIESSEN_FH_TUERMODUL_CTRL_NEXT_STATE = 1
+                                        BITLIST[ACTIVE_EINKLEMMSCHUTZ_CTRL_COPY_IDX] = 0
+                                        FH_TUERMODUL__MFHZ_COPY = 0
+
+                                        SC_FH_TUERMODUL_CTRL_1781_10 = TIME
+                                        FH_TUERMODUL__MFHA_COPY = 1
+                                    end
+                                else
+                                    STABLE = 0
+                                    TIPP_SCHLIESSEN_FH_TUERMODUL_CTRL_NEXT_STATE = 2
+                                    BITLIST[ACTIVE_EINKLEMMSCHUTZ_CTRL_COPY_IDX] = 1
+                                end
+                            end
+                        elseif SCHLIESSEN_FH_TUERMODUL_CTRL_NEXT_STATE == 2 then
+                            if (not (FH_TUERMODUL__SFHZ ~= 0) and FH_TUERMODUL__SFHZ_OLD ~= 0) then
+                                STABLE = 0
+                                FH_TUERMODUL__MFHZ_COPY = 0
+
+                                INITIALISIERT_FH_TUERMODUL_CTRL_NEXT_STATE = 3
+                            else
+                                if MANUELL_SCHLIESSEN_FH_TUERMODUL_CTRL_NEXT_STATE == 1 then
+                                    BITLIST[FH_TUERMODUL_CTRL__END_REVERS_COPY_IDX] = 0
+                                    if BITLIST[FH_TUERMODUL_CTRL__END_REVERS_IDX] ~= 0 then
+                                        STABLE = 0
+                                        FH_TUERMODUL_CTRL__INREVERS1_COPY = 0
+
+                                        MANUELL_SCHLIESSEN_FH_TUERMODUL_CTRL_NEXT_STATE = 2
+                                        FH_TUERMODUL__MFHA_COPY = 0
+
+                                        BITLIST[ACTIVE_EINKLEMMSCHUTZ_CTRL_COPY_IDX] = 1
+                                        FH_TUERMODUL__MFHZ_COPY = 1
+                                    end
+                                elseif MANUELL_SCHLIESSEN_FH_TUERMODUL_CTRL_NEXT_STATE == 2 then
+                                    if BITLIST[FH_TUERMODUL__EINKLEMMUNG_IDX] ~= 0 then
+                                        STABLE = 0
+                                        FH_TUERMODUL__MFHZ_COPY = 0
+                                        FH_TUERMODUL_CTRL__INREVERS1_COPY = 1
+
+                                        BITLIST[FH_TUERMODUL_CTRL__END_REVERS_COPY_IDX] = 1
+                                        MANUELL_SCHLIESSEN_FH_TUERMODUL_CTRL_NEXT_STATE = 1
+                                        BITLIST[ACTIVE_EINKLEMMSCHUTZ_CTRL_COPY_IDX] = 0
+
+                                        SC_FH_TUERMODUL_CTRL_1739_10 = TIME
+                                        FH_TUERMODUL__MFHA_COPY = 1
+                                    elseif (FH_TUERMODUL__SFHA ~= 0 and not (FH_TUERMODUL__SFHA_OLD ~= 0)) then
+                                        STABLE = 0
+
+                                        SCHLIESSEN_FH_TUERMODUL_CTRL_NEXT_STATE = 1
+                                        MANUELL_SCHLIESSEN_FH_TUERMODUL_CTRL_NEXT_STATE = 0
+                                    end
+                                else
+                                    STABLE = 0
+                                    MANUELL_SCHLIESSEN_FH_TUERMODUL_CTRL_NEXT_STATE = 2
+                                    BITLIST[ACTIVE_EINKLEMMSCHUTZ_CTRL_COPY_IDX] = 1
+                                    FH_TUERMODUL__MFHZ_COPY = 1
+                                end
+                            end
+                        else
+                            STABLE = 0
+                            SCHLIESSEN_FH_TUERMODUL_CTRL_NEXT_STATE = 2
+                            MANUELL_SCHLIESSEN_FH_TUERMODUL_CTRL_NEXT_STATE = 2
+                            BITLIST[ACTIVE_EINKLEMMSCHUTZ_CTRL_COPY_IDX] = 1
+                            FH_TUERMODUL__MFHZ_COPY = 1
+                        end
+                    end
+                elseif INITIALISIERT_FH_TUERMODUL_CTRL_NEXT_STATE == 3 then
+                    if ((FH_TUERMODUL__SFHZ ~= 0 and not (FH_TUERMODUL__SFHZ_OLD ~= 0))) and ((FH_TUERMODUL__POSITION > 0)) then
+                        STABLE = 0
+
+                        INITIALISIERT_FH_TUERMODUL_CTRL_NEXT_STATE = 2
+                        SCHLIESSEN_FH_TUERMODUL_CTRL_NEXT_STATE = 2
+                        MANUELL_SCHLIESSEN_FH_TUERMODUL_CTRL_NEXT_STATE = 2
+                        BITLIST[ACTIVE_EINKLEMMSCHUTZ_CTRL_COPY_IDX] = 1
+                        FH_TUERMODUL__MFHZ_COPY = 1
+                    elseif ((FH_TUERMODUL__SFHA ~= 0 and not (FH_TUERMODUL__SFHA_OLD ~= 0))) and ((FH_TUERMODUL__POSITION < 405)) then
+                        STABLE = 0
+                        FH_TUERMODUL__MFHA_COPY = 1
+
+                        INITIALISIERT_FH_TUERMODUL_CTRL_NEXT_STATE = 1
+                        OEFFNEN_FH_TUERMODUL_CTRL_NEXT_STATE = 2
+                    end
+                else
+                    STABLE = 0
+                    INITIALISIERT_FH_TUERMODUL_CTRL_NEXT_STATE = 3
+                end
+            end
+        else
+            STABLE = 0
+            B_FH_TUERMODUL_CTRL_NEXT_STATE = 2
+        end
+
+        if A_FH_TUERMODUL_CTRL_NEXT_STATE == 1 then
+            BITLIST[ENTERED_WIEDERHOLSPERRE_FH_TUERMODUL_CTRL_COPY_IDX] = 0
+            if (STEP == 1 and TM_ENTERED_WIEDERHOLSPERRE_FH_TUERMODUL_CTRLEXITED_BEREIT_FH_TUERMODUL_CTRL ~= 0 and (TIME - TM_ENTERED_WIEDERHOLSPERRE_FH_TUERMODUL_CTRLEXITED_BEREIT_FH_TUERMODUL_CTRL == 1)) and ((FH_TUERMODUL__MFHZ ~= 0 or FH_TUERMODUL__MFHA ~= 0)) then
+                STABLE = 0
+                FH_TUERMODUL_CTRL__N = FH_TUERMODUL_CTRL__N + 1
+
+                A_FH_TUERMODUL_CTRL_NEXT_STATE = 1
+                BITLIST[ENTERED_WIEDERHOLSPERRE_FH_TUERMODUL_CTRL_COPY_IDX] = 1
+                WIEDERHOLSPERRE_FH_TUERMODUL_CTRL_NEXT_STATE = 1
+            else
+                if WIEDERHOLSPERRE_FH_TUERMODUL_CTRL_NEXT_STATE == 1 then
+                    if (STEP == 1 and TM_ENTERED_WIEDERHOLSPERRE_FH_TUERMODUL_CTRL ~= 0 and (TIME - TM_ENTERED_WIEDERHOLSPERRE_FH_TUERMODUL_CTRL == 3)) and (((not (FH_TUERMODUL__MFHZ ~= 0 or FH_TUERMODUL__MFHA ~= 0)) and FH_TUERMODUL_CTRL__N > 0)) then
+                        STABLE = 0
+                        FH_TUERMODUL_CTRL__N = FH_TUERMODUL_CTRL__N - 1
+
+                        WIEDERHOLSPERRE_FH_TUERMODUL_CTRL_NEXT_STATE = 1
+                    end
+                else
+                    STABLE = 0
+                    BITLIST[ENTERED_WIEDERHOLSPERRE_FH_TUERMODUL_CTRL_COPY_IDX] = 1
+                    WIEDERHOLSPERRE_FH_TUERMODUL_CTRL_NEXT_STATE = 1
+                end
+            end
+        else
+            STABLE = 0
+            FH_TUERMODUL_CTRL__N = 0
+            A_FH_TUERMODUL_CTRL_NEXT_STATE = 1
+            BITLIST[ENTERED_WIEDERHOLSPERRE_FH_TUERMODUL_CTRL_COPY_IDX] = 1
+            WIEDERHOLSPERRE_FH_TUERMODUL_CTRL_NEXT_STATE = 1
+        end
+
+        BITLIST[ENTERED_WIEDERHOLSPERRE_FH_TUERMODUL_CTRL_COPY_IDX] = BITLIST[ENTERED_WIEDERHOLSPERRE_FH_TUERMODUL_CTRL_IDX]
+        BITLIST[EXITED_BEREIT_FH_TUERMODUL_CTRL_COPY_IDX] = BITLIST[EXITED_BEREIT_FH_TUERMODUL_CTRL_IDX]
+      end
+    end
+
+local function generic_EINKLEMMSCHUTZ_CTRL()
+    if BITLIST[ACTIVE_EINKLEMMSCHUTZ_CTRL_IDX] ~= 0 then
+        if EINKLEMMSCHUTZ_CTRL_EINKLEMMSCHUTZ_CTRL_NEXT_STATE == 1 then
+            if ((FH_TUERMODUL__EKS_LEISTE_AKTIV ~= 0 and not (FH_TUERMODUL__EKS_LEISTE_AKTIV_OLD ~= 0))) and ((not (FH_TUERMODUL__SFHZ ~= 0 and FH_TUERMODUL__SFHA ~= 0))) then
+                STABLE = 0
+
+                BITLIST[FH_TUERMODUL__EINKLEMMUNG_IDX] = 1
+                EINKLEMMSCHUTZ_CTRL_EINKLEMMSCHUTZ_CTRL_NEXT_STATE = 2
+            end
+        elseif EINKLEMMSCHUTZ_CTRL_EINKLEMMSCHUTZ_CTRL_NEXT_STATE == 2 then
+            BITLIST[FH_TUERMODUL__EINKLEMMUNG_IDX] = 0
+            if (not (FH_TUERMODUL__EKS_LEISTE_AKTIV ~= 0) and FH_TUERMODUL__EKS_LEISTE_AKTIV_OLD ~= 0) then
+                STABLE = 0
+
+                EINKLEMMSCHUTZ_CTRL_EINKLEMMSCHUTZ_CTRL_NEXT_STATE = 1
+            end
+        else
+            STABLE = 0
+            EINKLEMMSCHUTZ_CTRL_EINKLEMMSCHUTZ_CTRL_NEXT_STATE = 1
+        end
+    end
+  end
+
+local function generic_BLOCK_ERKENNUNG_CTRL()
+    if not (BITLIST[ACTIVE_BLOCK_ERKENNUNG_CTRL_IDX] ~= 0) and BITLIST[ACTIVE_BLOCK_ERKENNUNG_CTRL_OLD_IDX] ~= 0 and not (BITLIST[ACTIVE_BLOCK_ERKENNUNG_CTRL_COPY_IDX] ~= 0) then
+        BITLIST[ENTERED_EINSCHALTSTROM_MESSEN_BLOCK_ERKENNUNG_CTRL_IDX] = 0
+    end
+    if (BITLIST[ACTIVE_BLOCK_ERKENNUNG_CTRL_IDX]) ~= 0 then
+        if BLOCK_ERKENNUNG_CTRL_BLOCK_ERKENNUNG_CTRL_NEXT_STATE == 1 then
+            if (FH_TUERMODUL__I_EIN ~= FH_TUERMODUL__I_EIN_OLD) and ((FH_TUERMODUL__I_EIN > 0)) then
+                STABLE = 0
+                FH_TUERMODUL__BLOCK_COPY = 0
+
+                BLOCK_ERKENNUNG_CTRL_BLOCK_ERKENNUNG_CTRL_NEXT_STATE = 2
+                BLOCK_ERKENNUNG_CTRL__N = 0
+                BLOCK_ERKENNUNG_CTRL__I_EIN_MAX = 2
+                BEWEGUNG_BLOCK_ERKENNUNG_CTRL_NEXT_STATE = 3
+                BITLIST[ENTERED_EINSCHALTSTROM_MESSEN_BLOCK_ERKENNUNG_CTRL_IDX] = 1
+            end
+        elseif BLOCK_ERKENNUNG_CTRL_BLOCK_ERKENNUNG_CTRL_NEXT_STATE == 2 then
+            if (not (FH_TUERMODUL__MFHA ~= 0) and FH_TUERMODUL__MFHA_OLD ~= 0) or (not (FH_TUERMODUL__MFHZ ~= 0) and FH_TUERMODUL__MFHZ_OLD ~= 0) then
+                STABLE = 0
+
+                BLOCK_ERKENNUNG_CTRL_BLOCK_ERKENNUNG_CTRL_NEXT_STATE = 1
+                BEWEGUNG_BLOCK_ERKENNUNG_CTRL_NEXT_STATE = 0
+            else
+                if BEWEGUNG_BLOCK_ERKENNUNG_CTRL_NEXT_STATE == 1 then
+                  BEWEGUNG_BLOCK_ERKENNUNG_CTRL_NEXT_STATE = 1
+                elseif BEWEGUNG_BLOCK_ERKENNUNG_CTRL_NEXT_STATE == 2 then
+                    if (FH_TUERMODUL__I_EIN > (BLOCK_ERKENNUNG_CTRL__I_EIN_MAX - 2)) then
+                        STABLE = 0
+                        FH_TUERMODUL__BLOCK_COPY = 1
+
+                        BEWEGUNG_BLOCK_ERKENNUNG_CTRL_NEXT_STATE = 1
+                    end
+                elseif BEWEGUNG_BLOCK_ERKENNUNG_CTRL_NEXT_STATE == 3 then
+                    BITLIST[ENTERED_EINSCHALTSTROM_MESSEN_BLOCK_ERKENNUNG_CTRL_IDX] = 0
+                    if (BLOCK_ERKENNUNG_CTRL__N == 11 and not (BLOCK_ERKENNUNG_CTRL__N_OLD == 11)) then
+                        STABLE = 0
+
+                        BEWEGUNG_BLOCK_ERKENNUNG_CTRL_NEXT_STATE = 2
+                    elseif BEWEGUNG_BLOCK_ERKENNUNG_CTRL_NEXT_STATE == 3 then
+                        if STEP == 1 and TM_ENTERED_EINSCHALTSTROM_MESSEN_BLOCK_ERKENNUNG_CTRLCH_BLOCK_ERKENNUNG_CTRL__N_COPY ~= 0 and false then
+                            BLOCK_ERKENNUNG_CTRL__N = BLOCK_ERKENNUNG_CTRL__N + 1
+                            if (FH_TUERMODUL__I_EIN > BLOCK_ERKENNUNG_CTRL__I_EIN_MAX) then
+                                BLOCK_ERKENNUNG_CTRL__I_EIN_MAX = FH_TUERMODUL__I_EIN
+                            end
+                        end
+                    end
+                else
+                    STABLE = 0
+                    BLOCK_ERKENNUNG_CTRL__N = 0
+                    BLOCK_ERKENNUNG_CTRL__I_EIN_MAX = 2
+                    BEWEGUNG_BLOCK_ERKENNUNG_CTRL_NEXT_STATE = 3
+                    BITLIST[ENTERED_EINSCHALTSTROM_MESSEN_BLOCK_ERKENNUNG_CTRL_IDX] = 1
+                end
+            end
+        else
+            STABLE = 0
+            BLOCK_ERKENNUNG_CTRL_BLOCK_ERKENNUNG_CTRL_NEXT_STATE = 1
+        end
+    end
+  end
+
+local function FH_DU()
+    TIME = 1
+    STABLE = 0
+    STEP = 0
+    while STABLE == 0 do
+        STABLE = 1
+        STEP = STEP + 1
+        if FH_STEUERUNG_DUMMY_FH_STEUERUNG_DUMMY_NEXT_STATE == 1 then
+            if (not (FH_DU__MFHZ ~= 0) and FH_DU__MFHZ_OLD ~= 0) then
+                STABLE = 0
+                FH_DU__MFH = 0
+
+                FH_STEUERUNG_DUMMY_FH_STEUERUNG_DUMMY_NEXT_STATE = 2
+            end
+        elseif FH_STEUERUNG_DUMMY_FH_STEUERUNG_DUMMY_NEXT_STATE == 2 then
+            if (FH_DU__MFHZ ~= 0 and not (FH_DU__MFHZ_OLD ~= 0)) then
+                STABLE = 0
+                FH_DU__MFH = -100
+
+                FH_STEUERUNG_DUMMY_FH_STEUERUNG_DUMMY_NEXT_STATE = 1
+            elseif (FH_DU__MFHA ~= 0 and not (FH_DU__MFHA_OLD ~= 0)) then
+                STABLE = 0
+                FH_DU__MFH = 100
+
+                FH_STEUERUNG_DUMMY_FH_STEUERUNG_DUMMY_NEXT_STATE = 3
+            end
+        elseif FH_STEUERUNG_DUMMY_FH_STEUERUNG_DUMMY_NEXT_STATE == 3 then
+            if (not (FH_DU__MFHA ~= 0) and FH_DU__MFHA_OLD ~= 0) then
+                STABLE = 0
+                FH_DU__MFH = 0
+
+                FH_STEUERUNG_DUMMY_FH_STEUERUNG_DUMMY_NEXT_STATE = 2
+            end
+        else
+            STABLE = 0
+            FH_DU__MFH = 0
+            FH_STEUERUNG_DUMMY_FH_STEUERUNG_DUMMY_NEXT_STATE = 2
+        end
+        if BITLIST[ACTIVE_KINDERSICHERUNG_CTRL_IDX] == 0 then
+            KINDERSICHERUNG_CTRL_KINDERSICHERUNG_CTRL_NEXT_STATE = 3
+        end
+        BITLIST[ACTIVE_KINDERSICHERUNG_CTRL_COPY_IDX] = 0
+        if BITLIST[ACTIVE_EINKLEMMSCHUTZ_CTRL_IDX] == 0 then
+            EINKLEMMSCHUTZ_CTRL_EINKLEMMSCHUTZ_CTRL_NEXT_STATE = 1
+        end
+        BITLIST[ACTIVE_EINKLEMMSCHUTZ_CTRL_COPY_IDX] = 0
+        if BITLIST[ACTIVE_BLOCK_ERKENNUNG_CTRL_IDX] == 0 then
+            BITLIST[ENTERED_EINSCHALTSTROM_MESSEN_BLOCK_ERKENNUNG_CTRL_IDX] = 0
+            BLOCK_ERKENNUNG_CTRL_BLOCK_ERKENNUNG_CTRL_NEXT_STATE = 1
+        end
+        BITLIST[ACTIVE_BLOCK_ERKENNUNG_CTRL_COPY_IDX] = 0
+        if BITLIST[ACTIVE_FH_TUERMODUL_CTRL_IDX] == 0 then
+            BITLIST[ENTERED_WIEDERHOLSPERRE_FH_TUERMODUL_CTRL_IDX] = 0
+            BITLIST[EXITED_BEREIT_FH_TUERMODUL_CTRL_IDX] = 0
+            B_FH_TUERMODUL_CTRL_NEXT_STATE = 2
+            FH_TUERMODUL_CTRL__N = 0
+            A_FH_TUERMODUL_CTRL_NEXT_STATE = 1
+            BITLIST[ENTERED_WIEDERHOLSPERRE_FH_TUERMODUL_CTRL_COPY_IDX] = 1
+            WIEDERHOLSPERRE_FH_TUERMODUL_CTRL_NEXT_STATE = 1
+        end
+        BITLIST[ACTIVE_FH_TUERMODUL_CTRL_COPY_IDX] = 0
+        BITLIST[ACTIVE_KINDERSICHERUNG_CTRL_COPY_IDX] = 1
+        BITLIST[ACTIVE_EINKLEMMSCHUTZ_CTRL_COPY_IDX] = 1
+        BITLIST[ACTIVE_BLOCK_ERKENNUNG_CTRL_COPY_IDX] = 1
+        BITLIST[ACTIVE_FH_TUERMODUL_CTRL_COPY_IDX] = 1
+
+        if FH_DU__S_FH_TMBFZUCAN ~= FH_DU__S_FH_TMBFZUCAN_OLD then
+            if (FH_DU__DOOR_ID ~= 0) then
+                FH_DU__S_FH_FTZU = FH_DU__S_FH_TMBFZUCAN
+            end
+        end
+        if FH_DU__S_FH_TMBFZUDISC ~= FH_DU__S_FH_TMBFZUDISC_OLD then
+            if FH_DU__DOOR_ID == 0 then
+                FH_DU__S_FH_TMBFZUCAN = FH_DU__S_FH_TMBFZUDISC
+            end
+        end
+        if FH_DU__S_FH_TMBFAUFCAN ~= FH_DU__S_FH_TMBFAUFCAN_OLD then
+            if (FH_DU__DOOR_ID ~= 0) then
+                FH_DU__S_FH_FTAUF = FH_DU__S_FH_TMBFAUFCAN
+            end
+        end
+        if FH_DU__S_FH_TMBFAUFDISC ~= FH_DU__S_FH_TMBFAUFDISC_OLD then
+            if FH_DU__DOOR_ID == 0 then
+                FH_DU__S_FH_TMBFAUFCAN = FH_DU__S_FH_TMBFAUFDISC
+            end
+        end
+        BITLIST[ACTIVE_KINDERSICHERUNG_CTRL_IDX] = BITLIST[ACTIVE_KINDERSICHERUNG_CTRL_OLD_IDX]
+        BITLIST[ACTIVE_FH_TUERMODUL_CTRL_IDX] = BITLIST[ACTIVE_FH_TUERMODUL_CTRL_OLD_IDX]
+        BITLIST[ACTIVE_EINKLEMMSCHUTZ_CTRL_IDX] = BITLIST[ACTIVE_EINKLEMMSCHUTZ_CTRL_OLD_IDX]
+        BITLIST[ACTIVE_BLOCK_ERKENNUNG_CTRL_IDX] = BITLIST[ACTIVE_BLOCK_ERKENNUNG_CTRL_OLD_IDX]
+        FH_TUERMODUL__SFHA_MEC = FH_DU__S_FH_AUFDISC
+        FH_TUERMODUL__SFHA_ZENTRAL = FH_DU__S_FH_FTAUF
+        FH_TUERMODUL__SFHZ_MEC = FH_DU__S_FH_ZUDISC
+        FH_TUERMODUL__SFHZ_ZENTRAL = FH_DU__S_FH_FTZU
+
+        generic_KINDERSICHERUNG_CTRL()
+
+        FH_DU__MFHA = FH_TUERMODUL__MFHA
+        FH_DU__MFHZ = FH_TUERMODUL__MFHZ
+        FH_DU__I_EIN = FH_TUERMODUL__I_EIN
+        FH_DU__EKS_LEISTE_AKTIV = FH_TUERMODUL__EKS_LEISTE_AKTIV
+        FH_DU__POSITION = FH_TUERMODUL__POSITION
+        FH_DU__FT = FH_TUERMODUL__FT
+        FH_DU__S_FH_AUFDISC = FH_TUERMODUL__SFHA_MEC
+        FH_DU__S_FH_FTAUF = FH_TUERMODUL__SFHA_ZENTRAL
+        FH_DU__S_FH_ZUDISC = FH_TUERMODUL__SFHZ_MEC
+        FH_DU__S_FH_FTZU = FH_TUERMODUL__SFHZ_ZENTRAL
+        FH_DU__KL_50 = FH_TUERMODUL__KL_50
+        FH_DU__BLOCK = FH_TUERMODUL__BLOCK
+
+        FH_TUERMODUL__SFHA_MEC = FH_DU__S_FH_AUFDISC
+        FH_TUERMODUL__SFHA_ZENTRAL = FH_DU__S_FH_FTAUF
+        FH_TUERMODUL__SFHZ_MEC = FH_DU__S_FH_ZUDISC
+        FH_TUERMODUL__SFHZ_ZENTRAL = FH_DU__S_FH_FTZU
+
+        generic_FH_TUERMODUL_CTRL()
+
+        FH_DU__MFHA = FH_TUERMODUL__MFHA
+        FH_DU__MFHZ = FH_TUERMODUL__MFHZ
+        FH_DU__I_EIN = FH_TUERMODUL__I_EIN
+        FH_DU__EKS_LEISTE_AKTIV = FH_TUERMODUL__EKS_LEISTE_AKTIV
+        FH_DU__POSITION = FH_TUERMODUL__POSITION
+        FH_DU__FT = FH_TUERMODUL__FT
+        FH_DU__S_FH_AUFDISC = FH_TUERMODUL__SFHA_MEC
+        FH_DU__S_FH_FTAUF = FH_TUERMODUL__SFHA_ZENTRAL
+        FH_DU__S_FH_ZUDISC = FH_TUERMODUL__SFHZ_MEC
+        FH_DU__S_FH_FTZU = FH_TUERMODUL__SFHZ_ZENTRAL
+        FH_DU__KL_50 = FH_TUERMODUL__KL_50
+        FH_DU__BLOCK = FH_TUERMODUL__BLOCK
+
+        FH_TUERMODUL__SFHA_MEC = FH_DU__S_FH_AUFDISC
+        FH_TUERMODUL__SFHA_ZENTRAL = FH_DU__S_FH_FTAUF
+        FH_TUERMODUL__SFHZ_MEC = FH_DU__S_FH_ZUDISC
+        FH_TUERMODUL__SFHZ_ZENTRAL = FH_DU__S_FH_FTZU
+
+        generic_EINKLEMMSCHUTZ_CTRL()
+
+        FH_DU__MFHA = FH_TUERMODUL__MFHA
+        FH_DU__MFHZ = FH_TUERMODUL__MFHZ
+        FH_DU__I_EIN = FH_TUERMODUL__I_EIN
+        FH_DU__EKS_LEISTE_AKTIV = FH_TUERMODUL__EKS_LEISTE_AKTIV
+        FH_DU__POSITION = FH_TUERMODUL__POSITION
+        FH_DU__FT = FH_TUERMODUL__FT
+        FH_DU__S_FH_AUFDISC = FH_TUERMODUL__SFHA_MEC
+        FH_DU__S_FH_FTAUF = FH_TUERMODUL__SFHA_ZENTRAL
+        FH_DU__S_FH_ZUDISC = FH_TUERMODUL__SFHZ_MEC
+        FH_DU__S_FH_FTZU = FH_TUERMODUL__SFHZ_ZENTRAL
+        FH_DU__KL_50 = FH_TUERMODUL__KL_50
+        FH_DU__BLOCK = FH_TUERMODUL__BLOCK
+
+        FH_TUERMODUL__SFHA_MEC = FH_DU__S_FH_AUFDISC
+        FH_TUERMODUL__SFHA_ZENTRAL = FH_DU__S_FH_FTAUF
+        FH_TUERMODUL__SFHZ_MEC = FH_DU__S_FH_ZUDISC
+        FH_TUERMODUL__SFHZ_ZENTRAL = FH_DU__S_FH_FTZU
+
+        generic_BLOCK_ERKENNUNG_CTRL()
+
+        FH_DU__MFHA = FH_TUERMODUL__MFHA
+        FH_DU__MFHZ = FH_TUERMODUL__MFHZ
+        FH_DU__I_EIN = FH_TUERMODUL__I_EIN
+        FH_DU__EKS_LEISTE_AKTIV = FH_TUERMODUL__EKS_LEISTE_AKTIV
+        FH_DU__POSITION = FH_TUERMODUL__POSITION
+        FH_DU__FT = FH_TUERMODUL__FT
+        FH_DU__S_FH_AUFDISC = FH_TUERMODUL__SFHA_MEC
+        FH_DU__S_FH_FTAUF = FH_TUERMODUL__SFHA_ZENTRAL
+        FH_DU__S_FH_ZUDISC = FH_TUERMODUL__SFHZ_MEC
+        FH_DU__S_FH_FTZU = FH_TUERMODUL__SFHZ_ZENTRAL
+        FH_DU__KL_50 = FH_TUERMODUL__KL_50
+        FH_DU__BLOCK = FH_TUERMODUL__BLOCK
+
+        BITLIST[ACTIVE_KINDERSICHERUNG_CTRL_COPY_IDX] = BITLIST[ACTIVE_KINDERSICHERUNG_CTRL_IDX]
+        BITLIST[ACTIVE_FH_TUERMODUL_CTRL_COPY_IDX] = BITLIST[ACTIVE_FH_TUERMODUL_CTRL_IDX]
+        BITLIST[ACTIVE_EINKLEMMSCHUTZ_CTRL_COPY_IDX] = BITLIST[ACTIVE_EINKLEMMSCHUTZ_CTRL_IDX]
+        BITLIST[ACTIVE_BLOCK_ERKENNUNG_CTRL_COPY_IDX] = BITLIST[ACTIVE_BLOCK_ERKENNUNG_CTRL_IDX]
+        FH_TUERMODUL_CTRL__N_OLD = FH_TUERMODUL_CTRL__N
+        FH_TUERMODUL__I_EIN_OLD = FH_TUERMODUL__I_EIN
+        FH_DU__MFH = FH_DU__MFH_COPY
+        FH_DU__I_EIN_OLD = FH_DU__I_EIN
+        BLOCK_ERKENNUNG_CTRL__N_OLD = BLOCK_ERKENNUNG_CTRL__N
+        FH_TUERMODUL__SFHZ_ZENTRAL_OLD = FH_TUERMODUL__SFHZ_ZENTRAL
+        FH_TUERMODUL__SFHZ_MEC_OLD = FH_TUERMODUL__SFHZ_MEC
+        FH_TUERMODUL__SFHA_ZENTRAL_OLD = FH_TUERMODUL__SFHA_ZENTRAL
+        FH_TUERMODUL__SFHA_MEC_OLD = FH_TUERMODUL__SFHA_MEC
+        FH_TUERMODUL__BLOCK = FH_TUERMODUL__BLOCK_COPY
+        FH_TUERMODUL__BLOCK_OLD = FH_TUERMODUL__BLOCK
+        FH_TUERMODUL__SFHZ = FH_TUERMODUL__SFHZ_COPY
+        FH_TUERMODUL__SFHZ_OLD = FH_TUERMODUL__SFHZ
+        FH_TUERMODUL__SFHA = FH_TUERMODUL__SFHA_COPY
+        FH_TUERMODUL__SFHA_OLD = FH_TUERMODUL__SFHA
+        FH_TUERMODUL__MFHZ = FH_TUERMODUL__MFHZ_COPY
+        FH_TUERMODUL__MFHZ_OLD = FH_TUERMODUL__MFHZ
+        FH_TUERMODUL__MFHA = FH_TUERMODUL__MFHA_COPY
+        FH_TUERMODUL__MFHA_OLD = FH_TUERMODUL__MFHA
+        FH_TUERMODUL__EKS_LEISTE_AKTIV_OLD = FH_TUERMODUL__EKS_LEISTE_AKTIV
+        FH_DU__EKS_LEISTE_AKTIV_OLD = FH_DU__EKS_LEISTE_AKTIV
+        FH_DU__S_FH_TMBFAUFCAN_OLD = FH_DU__S_FH_TMBFAUFCAN
+        FH_DU__S_FH_TMBFZUCAN_OLD = FH_DU__S_FH_TMBFZUCAN
+        FH_DU__S_FH_TMBFZUDISC_OLD = FH_DU__S_FH_TMBFZUDISC
+        FH_DU__S_FH_TMBFAUFDISC_OLD = FH_DU__S_FH_TMBFAUFDISC
+        FH_DU__BLOCK = FH_DU__BLOCK_COPY
+        FH_DU__BLOCK_OLD = FH_DU__BLOCK
+        FH_DU__MFHZ = FH_DU__MFHZ_COPY
+        FH_DU__MFHZ_OLD = FH_DU__MFHZ
+        FH_DU__MFHA = FH_DU__MFHA_COPY
+        FH_DU__MFHA_OLD = FH_DU__MFHA
+      end
+    end
+
+local function initialise_benchmark()
+end
+
+local function benchmark_body(lsf)
+    for _ = 1,lsf do
+            for i = 1,64 do
+              BITLIST[i - 1] = 0
+            end
+            init()
+
+            interface()
+            FH_DU()
+    end
+    return 0
+  end
+
+local function verify_benchmark(unused)
+    local expected = {0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+
+    for i = 1,64 do
+        if BITLIST[i - 1] ~= expected[i] then
+            return false
+        end
+      end
+    if (TM_ENTERED_EINSCHALTSTROM_MESSEN_BLOCK_ERKENNUNG_CTRLCH_BLOCK_ERKENNUNG_CTRL__N_COPY ~= 0 or TM_ENTERED_WIEDERHOLSPERRE_FH_TUERMODUL_CTRLEXITED_BEREIT_FH_TUERMODUL_CTRL ~= 0 or TM_ENTERED_WIEDERHOLSPERRE_FH_TUERMODUL_CTRL ~= 0 or NICHT_INITIALISIERT_NICHT_INITIALISIERT_NEXT_STATE ~= 0 or ZENTRAL_KINDERSICHERUNG_CTRL_NEXT_STATE ~= 0 or MEC_KINDERSICHERUNG_CTRL_NEXT_STATE ~= 0 or KINDERSICHERUNG_CTRL_KINDERSICHERUNG_CTRL_NEXT_STATE ~= 3 or B_FH_TUERMODUL_CTRL_NEXT_STATE ~= 2 or A_FH_TUERMODUL_CTRL_NEXT_STATE ~= 1 or WIEDERHOLSPERRE_FH_TUERMODUL_CTRL_NEXT_STATE ~= 1 or INITIALISIERT_FH_TUERMODUL_CTRL_NEXT_STATE ~= 0 or TIPP_SCHLIESSEN_FH_TUERMODUL_CTRL_NEXT_STATE ~= 0 or MANUELL_SCHLIESSEN_FH_TUERMODUL_CTRL_NEXT_STATE ~= 0 or OEFFNEN_FH_TUERMODUL_CTRL_NEXT_STATE ~= 0 or SCHLIESSEN_FH_TUERMODUL_CTRL_NEXT_STATE ~= 0 or FH_STEUERUNG_DUMMY_FH_STEUERUNG_DUMMY_NEXT_STATE ~= 2 or EINKLEMMSCHUTZ_CTRL_EINKLEMMSCHUTZ_CTRL_NEXT_STATE ~= 1 or BEWEGUNG_BLOCK_ERKENNUNG_CTRL_NEXT_STATE ~= 0 or BLOCK_ERKENNUNG_CTRL_BLOCK_ERKENNUNG_CTRL_NEXT_STATE ~= 1) then
+      return false
+    end
+    return true
+  end
+
+local function benchmark()
+  initialise_benchmark()
+  local res = benchmark_body(SCALE_FACTOR)
+  return verify_benchmark(res)
+end
+
+return benchmark()

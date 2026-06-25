@@ -1,0 +1,9 @@
+services:
+  artifact-2054:
+    build: .
+    privileged: true
+    network_mode: "host"
+    volumes:
+      - .:/artifacts
+    working_dir: /artifacts
+

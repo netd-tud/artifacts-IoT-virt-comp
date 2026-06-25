@@ -1,0 +1,26 @@
+"Embench IOT Name";"Embench IoT Version";"Droped";"Comments";"Original Source";"C LOC";"Branching";"Memory";"Compute"
+"aha-mont64";"1.0";0;"Montgomery multiplication";"AHA";162;0,1;0,01;0,89
+"crc32";"1.0";0;"CRC error checking 32 b";"MiBench";101;0,14;0,14;0,72
+"cubic";"1.0";1;"Cubic root solver";"MiBench";125;0,14;0,16;0,69
+"edn";"1.0";0;"More general filter";"WCET";285;0,1;0,29;0,61
+"huffbench";"1.0";0;"Compress/decompress";"Scott Ladd";309;0,23;0,26;0,51
+"matmult-int";"1.0";0;"Integer";"WCET";175;0,12;0,38;0,5
+"minver";"1.0";1;"Matrix";"WCET";187;0,17;0,28;0,55
+"nbody";"1.0";1;"Satellite";"CLBG";172;0,17;0,1;0,72
+"nettle-aes";"1.0";0;"Encrypt/decrypt";"Nettle";1,018;0,02;0,2;0,78
+"nettle-sha256";"1.0";0;"Cryptographic";"Nettle";349;0,01;0,14;0,84
+"nsichneu";"1.0";0;"Extended Petri net";"WCET";2,676;0,45;0,54;0,01
+"picojpeg";"1.0";0;"JPEG";"MiBench2";2,182;0,11;0,28;0,61
+"qrduino";"1.0";0;"QR";"Github";936;0,15;0,2;0,65
+"sglib-combined";"1.0";0;"Simple";"SGLIB";1,844;0,26;0,38;0,36
+"slre";"1.0";0;"Regex";"SLRE";506;0,27;0,31;0,42
+"st";"1.0";1;"Statistics";"WCET";117;0,16;0,11;0,72
+"statemate";"1.0";0;"State";"C-LAB";1,301;0,14;0,72;0,13
+"ud";"1.0";0;"LUD composition Int";"WCET";95;0,17;0,24;0,58
+"wikisort";"1.0";0;"Merge sort";"Github";866;0,2;0,38;0,42
+"depthconv";"2.0";0;"Depthwise convolution ML kernel
+from TinyML (8-bit ints)";"Tensorflow Lite Micro";684;0,14;0,19;0,67
+"md5sum";"2.0";0;"Calculates";"GitHub";248;0,14;0,13;0,74
+"tarfind";"2.0";0;"Searches for files in tar archive";"Original";121;0,27;0,26;0,46
+"xgboost";"2.0";0;"Gradient-boosted decision tree ML
+model for inference (8-bit ints)";"XGBoost";284;0,15;0,25;0,6

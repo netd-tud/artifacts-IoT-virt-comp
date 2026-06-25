@@ -1,0 +1,7 @@
+# Ignore everything
+*
+
+# We really only need the entrypoint.sh and requirements.txt
+!entrypoint.sh
+!requirements.txt
+
