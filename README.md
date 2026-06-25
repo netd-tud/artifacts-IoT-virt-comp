@@ -15,7 +15,8 @@ runtime and memory artifacts.
 
 > [!CAUTION]
 > Running the full pipeline will take around 17 hours and flash your board ~2000 times.
-> gc_pressure_runtime.csv: ~9 hours and ~1200 flashes
+> 
+> gc_pressure_runtime.csv: ~9 hours and ~1200 flashes <br>
 > Stage 1: ~8 hours and ~900 flashes
 
 To launch the artifact pipeline in the pre-configured Docker container, run:
@@ -33,6 +34,7 @@ make jupyter
 ## Workflow Overview
 
 The pipeline consists of two sequential stages:
+
 **Stage 1** - Generate Config:
 
 - Purpose: Automatically determine the minimum viable values for `HEAP`, `STACK` and `RIOT_STACK`
