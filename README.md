@@ -7,7 +7,7 @@ runtime and memory artifacts.
 
 ## Requirements
 
-- Possess a (nrf52840-dk)[https://www.nordicsemi.com/Products/Development-hardware/nRF52840-DK]
+- Possess a [nrf52840-dk](https://www.nordicsemi.com/Products/Development-hardware/nRF52840-DK)
 - Docker
 - dialout group membership (debian)
 
