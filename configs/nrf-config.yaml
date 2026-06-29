@@ -346,7 +346,7 @@ benchmarks:
 
         - name: micropython
           env:
-            RIOT_STACK: 4296
+            RIOT_STACK: 4996
             HEAP: 65536
 
         - name: micro-bpf
